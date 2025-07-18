@@ -1,6 +1,6 @@
 [build]
   publish = "dist/public"
-  command = "npm run build"
+  command = "npm install && npm run build"
 
 [[redirects]]
   from = "/api/*"
@@ -16,6 +16,7 @@
 [build.environment]
   NODE_ENV = "production"
   VITE_GA_MEASUREMENT_ID = "G-22BF5BGNSX"
+  NPM_FLAGS = "--include=dev"
 
 # Basic security headers
 [[headers]]
