@@ -243,5 +243,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-**Built with ❤️ for the Bangladesh e-commerce market**#   t r y n e x - e c o m m e r c e  
- 
+**Built with ❤️ for the Bangladesh e-commerce market**

@@ -1,12 +1,6 @@
 [build]
   publish = "dist/public"
-  command = "npm ci --include=dev && npm run build"
-
-[build.environment]
-  NODE_ENV = "production"
-  VITE_GA_MEASUREMENT_ID = "G-22BF5BGNSX"
-  NPM_FLAGS = "--include=dev"
-  NODE_VERSION = "18"
+  command = "npm run build"
 
 [[redirects]]
   from = "/api/*"
@@ -18,6 +12,10 @@
   from = "/*"
   to = "/index.html"
   status = 200
+
+[build.environment]
+  NODE_ENV = "production"
+  VITE_GA_MEASUREMENT_ID = "G-22BF5BGNSX"
 
 # Basic security headers
 [[headers]]
