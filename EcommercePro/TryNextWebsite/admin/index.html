@@ -1,0 +1,599 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TryneX Admin Panel - Content Management System</title>
+    <link rel="stylesheet" href="https://unpkg.com/netlify-cms@^2.0.0/dist/cms.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Enhanced Admin Panel Styles */
+        :root {
+            --primary-gold: #d4af37;
+            --primary-black: #1a1a1a;
+            --primary-white: #ffffff;
+            --gradient-gold: linear-gradient(135deg, #d4af37 0%, #f4e676 100%);
+            --gradient-dark: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            --shadow-light: 0 4px 20px rgba(212, 175, 55, 0.1);
+            --shadow-medium: 0 8px 30px rgba(212, 175, 55, 0.2);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+        }
+        
+        /* Header Styling */
+        .nc-app-header {
+            background: var(--gradient-dark) !important;
+            color: var(--primary-gold) !important;
+            border-bottom: 3px solid var(--primary-gold) !important;
+            box-shadow: var(--shadow-medium) !important;
+        }
+
+        .nc-app-header h1 {
+            background: var(--gradient-gold) !important;
+            -webkit-background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+            background-clip: text !important;
+            font-weight: 800 !important;
+            font-size: 1.5rem !important;
+        }
+
+        /* Sidebar Styling */
+        .nc-sidebar {
+            background: var(--gradient-dark) !important;
+            border-right: 2px solid var(--primary-gold) !important;
+            box-shadow: var(--shadow-light) !important;
+        }
+        
+        .nc-sidebar-nav-item {
+            color: var(--primary-white) !important;
+            padding: 1rem 1.5rem !important;
+            margin: 0.5rem !important;
+            border-radius: 8px !important;
+            transition: all 0.3s ease !important;
+            border-left: 3px solid transparent !important;
+        }
+        
+        .nc-sidebar-nav-item:hover {
+            background: var(--gradient-gold) !important;
+            color: var(--primary-black) !important;
+            border-left-color: var(--primary-black) !important;
+            transform: translateX(5px) !important;
+        }
+
+        .nc-sidebar-nav-item.active {
+            background: var(--primary-gold) !important;
+            color: var(--primary-black) !important;
+            border-left-color: var(--primary-black) !important;
+            font-weight: 600 !important;
+        }
+
+        /* Main Content Area */
+        .nc-main {
+            background: var(--primary-white) !important;
+            border-radius: 12px !important;
+            margin: 1rem !important;
+            box-shadow: var(--shadow-light) !important;
+        }
+
+        /* Button Styling */
+        .nc-button-primary,
+        .nc-button-primary:hover,
+        .nc-button-primary:focus {
+            background: var(--gradient-gold) !important;
+            border-color: var(--primary-gold) !important;
+            color: var(--primary-black) !important;
+            font-weight: 600 !important;
+            border-radius: 8px !important;
+            transition: all 0.3s ease !important;
+        }
+
+        .nc-button-primary:hover {
+            background: linear-gradient(135deg, #f4e676 0%, #d4af37 100%) !important;
+            transform: translateY(-2px) !important;
+            box-shadow: var(--shadow-medium) !important;
+        }
+
+        .nc-button-secondary {
+            border: 2px solid var(--primary-gold) !important;
+            color: var(--primary-gold) !important;
+            background: transparent !important;
+            border-radius: 8px !important;
+        }
+
+        .nc-button-secondary:hover {
+            background: var(--primary-gold) !important;
+            color: var(--primary-black) !important;
+        }
+
+        /* Form Styling */
+        .nc-field {
+            margin-bottom: 1.5rem !important;
+        }
+
+        .nc-field-label {
+            color: var(--primary-black) !important;
+            font-weight: 600 !important;
+            margin-bottom: 0.5rem !important;
+        }
+
+        .nc-field-input {
+            border: 2px solid rgba(212, 175, 55, 0.2) !important;
+            border-radius: 8px !important;
+            padding: 0.75rem !important;
+            transition: all 0.3s ease !important;
+        }
+
+        .nc-field-input:focus {
+            border-color: var(--primary-gold) !important;
+            box-shadow: var(--shadow-light) !important;
+            outline: none !important;
+        }
+
+        /* Collection List Styling */
+        .nc-collection-list-item {
+            background: var(--primary-white) !important;
+            border: 1px solid rgba(212, 175, 55, 0.2) !important;
+            border-radius: 12px !important;
+            margin-bottom: 1rem !important;
+            padding: 1.5rem !important;
+            transition: all 0.3s ease !important;
+        }
+
+        .nc-collection-list-item:hover {
+            border-color: var(--primary-gold) !important;
+            transform: translateY(-2px) !important;
+            box-shadow: var(--shadow-medium) !important;
+        }
+
+        /* Dashboard Cards */
+        .dashboard-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .stat-card {
+            background: var(--gradient-gold);
+            color: var(--primary-black);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: var(--shadow-medium);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .stat-card h3 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-card p {
+            font-weight: 600;
+            opacity: 0.8;
+        }
+
+        /* Status Badges */
+        .status-badge {
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .status-pending { background: #ffc107; color: #000; }
+        .status-confirmed { background: #17a2b8; color: #fff; }
+        .status-processing { background: #fd7e14; color: #fff; }
+        .status-shipped { background: #6f42c1; color: #fff; }
+        .status-delivered { background: #28a745; color: #fff; }
+        .status-cancelled { background: #dc3545; color: #fff; }
+
+        /* Custom Media Upload */
+        .nc-media-library-card {
+            border-radius: 12px !important;
+            overflow: hidden !important;
+            box-shadow: var(--shadow-light) !important;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nc-sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+            }
+
+            .nc-sidebar.open {
+                transform: translateX(0);
+            }
+
+            .dashboard-stats {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Loading States */
+        .loading-spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(212, 175, 55, 0.3);
+            border-radius: 50%;
+            border-top-color: var(--primary-gold);
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Welcome Message */
+        .welcome-message {
+            background: var(--gradient-gold);
+            color: var(--primary-black);
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem;
+            text-align: center;
+            box-shadow: var(--shadow-medium);
+        }
+
+        .welcome-message h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .welcome-message p {
+            font-size: 1.1rem;
+            opacity: 0.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .quick-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .quick-action-btn {
+            background: var(--primary-black);
+            color: var(--primary-white);
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .quick-action-btn:hover {
+            background: #2d2d2d;
+            transform: translateY(-2px);
+            color: var(--primary-white);
+        }
+    </style>
+</head>
+<body>
+    <!-- Custom Welcome Dashboard -->
+    <div id="custom-dashboard" style="display: none;">
+        <div class="welcome-message">
+            <h2><i class="fas fa-crown"></i> Welcome to TryneX Admin Panel</h2>
+            <p>Manage your premium e-commerce platform with ease. Control products, orders, customers, and content from this centralized dashboard.</p>
+            
+            <div class="quick-actions">
+                <a href="#" class="quick-action-btn" onclick="navigateToCollection('products')">
+                    <i class="fas fa-box"></i> Manage Products
+                </a>
+                <a href="#" class="quick-action-btn" onclick="navigateToCollection('orders')">
+                    <i class="fas fa-shopping-cart"></i> View Orders
+                </a>
+                <a href="#" class="quick-action-btn" onclick="navigateToCollection('promos')">
+                    <i class="fas fa-percent"></i> Promo Codes
+                </a>
+                <a href="#" class="quick-action-btn" onclick="navigateToCollection('banners')">
+                    <i class="fas fa-bullhorn"></i> Banners & Offers
+                </a>
+            </div>
+        </div>
+
+        <div class="dashboard-stats">
+            <div class="stat-card">
+                <h3 id="total-products">0</h3>
+                <p><i class="fas fa-box"></i> Total Products</p>
+            </div>
+            <div class="stat-card">
+                <h3 id="total-orders">0</h3>
+                <p><i class="fas fa-shopping-cart"></i> Total Orders</p>
+            </div>
+            <div class="stat-card">
+                <h3 id="active-promos">0</h3>
+                <p><i class="fas fa-percent"></i> Active Promos</p>
+            </div>
+            <div class="stat-card">
+                <h3 id="revenue">৳0</h3>
+                <p><i class="fas fa-chart-line"></i> Total Revenue</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Include Netlify CMS -->
+    <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
+    
+    <script>
+        // Custom JavaScript for enhanced functionality
+        function navigateToCollection(collection) {
+            // Navigate to specific collection
+            window.location.hash = `#/collections/${collection}`;
+        }
+
+        // Enhanced preview components
+        CMS.registerPreviewTemplate('products', ({ entry, widgetFor, widgetsFor }) => {
+            const name = entry.getIn(['data', 'name']);
+            const price = entry.getIn(['data', 'price']);
+            const category = entry.getIn(['data', 'category']);
+            const image = entry.getIn(['data', 'image']);
+            const description = entry.getIn(['data', 'description']);
+            const featured = entry.getIn(['data', 'featured']);
+            const inStock = entry.getIn(['data', 'in_stock']);
+            
+            return `
+                <div style="
+                    background: white;
+                    border-radius: 12px;
+                    overflow: hidden;
+                    box-shadow: 0 4px 20px rgba(212, 175, 55, 0.1);
+                    max-width: 350px;
+                    margin: 20px;
+                    border: 1px solid rgba(212, 175, 55, 0.2);
+                ">
+                    <div style="position: relative;">
+                        <img src="${image}" alt="${name}" style="
+                            width: 100%;
+                            height: 250px;
+                            object-fit: cover;
+                        ">
+                        ${featured ? '<div style="position: absolute; top: 10px; left: 10px; background: #d4af37; color: white; padding: 4px 8px; border-radius: 4px; font-size: 12px; font-weight: bold;">FEATURED</div>' : ''}
+                        ${!inStock ? '<div style="position: absolute; top: 10px; right: 10px; background: #dc3545; color: white; padding: 4px 8px; border-radius: 4px; font-size: 12px; font-weight: bold;">OUT OF STOCK</div>' : ''}
+                    </div>
+                    <div style="padding: 20px;">
+                        <div style="color: #d4af37; font-size: 14px; margin-bottom: 8px; font-weight: 500;">${category}</div>
+                        <h3 style="margin: 0 0 8px 0; color: #1a1a1a; font-size: 18px; font-weight: 600;">${name}</h3>
+                        <p style="color: #666; font-size: 14px; margin-bottom: 12px; line-height: 1.4;">${description}</p>
+                        <div style="font-size: 24px; font-weight: bold; color: #d4af37;">৳${price}</div>
+                        <div style="margin-top: 12px;">
+                            <span style="background: ${inStock ? '#28a745' : '#dc3545'}; color: white; padding: 4px 8px; border-radius: 4px; font-size: 12px; font-weight: bold;">
+                                ${inStock ? 'IN STOCK' : 'OUT OF STOCK'}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            `;
+        });
+        
+        CMS.registerPreviewTemplate('orders', ({ entry }) => {
+            const orderId = entry.getIn(['data', 'order_id']);
+            const customerName = entry.getIn(['data', 'customer_name']);
+            const total = entry.getIn(['data', 'total']);
+            const status = entry.getIn(['data', 'status']);
+            const paymentStatus = entry.getIn(['data', 'payment_status']);
+            const date = entry.getIn(['data', 'date']);
+            
+            const statusColors = {
+                'pending': '#ffc107',
+                'confirmed': '#17a2b8',
+                'processing': '#fd7e14',
+                'shipped': '#6f42c1',
+                'delivered': '#28a745',
+                'cancelled': '#dc3545'
+            };
+            
+            return `
+                <div style="
+                    background: white;
+                    border-radius: 12px;
+                    padding: 20px;
+                    box-shadow: 0 4px 20px rgba(212, 175, 55, 0.1);
+                    margin: 20px;
+                    border-left: 4px solid #d4af37;
+                ">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                        <h3 style="margin: 0; color: #1a1a1a;">Order #${orderId}</h3>
+                        <span style="
+                            background: ${statusColors[status] || '#6c757d'};
+                            color: white;
+                            padding: 4px 12px;
+                            border-radius: 20px;
+                            font-size: 12px;
+                            font-weight: bold;
+                            text-transform: uppercase;
+                        ">${status}</span>
+                    </div>
+                    <div style="margin-bottom: 10px;">
+                        <strong>Customer:</strong> ${customerName}
+                    </div>
+                    <div style="margin-bottom: 10px;">
+                        <strong>Total Amount:</strong> ৳${total}
+                    </div>
+                    <div style="margin-bottom: 10px;">
+                        <strong>Payment Status:</strong> 
+                        <span style="color: ${paymentStatus === 'paid' ? '#28a745' : '#ffc107'}; font-weight: bold; text-transform: capitalize;">
+                            ${paymentStatus}
+                        </span>
+                    </div>
+                    <div style="color: #666; font-size: 14px;">
+                        <strong>Date:</strong> ${new Date(date).toLocaleDateString('en-US', { 
+                            year: 'numeric', 
+                            month: 'long', 
+                            day: 'numeric',
+                            hour: '2-digit',
+                            minute: '2-digit'
+                        })}
+                    </div>
+                </div>
+            `;
+        });
+
+        CMS.registerPreviewTemplate('promos', ({ entry }) => {
+            const code = entry.getIn(['data', 'code']);
+            const description = entry.getIn(['data', 'description']);
+            const type = entry.getIn(['data', 'type']);
+            const discount = entry.getIn(['data', 'discount']);
+            const active = entry.getIn(['data', 'active']);
+            const expiry = entry.getIn(['data', 'expiry']);
+            
+            return `
+                <div style="
+                    background: ${active ? 'linear-gradient(135deg, #d4af37 0%, #f4e676 100%)' : '#f8f9fa'};
+                    color: ${active ? '#1a1a1a' : '#6c757d'};
+                    border-radius: 12px;
+                    padding: 20px;
+                    margin: 20px;
+                    border: 2px dashed ${active ? '#1a1a1a' : '#dee2e6'};
+                    max-width: 300px;
+                ">
+                    <div style="text-align: center;">
+                        <h2 style="margin: 0 0 10px 0; font-size: 24px; font-weight: bold; letter-spacing: 2px;">${code}</h2>
+                        <p style="margin: 0 0 15px 0; font-weight: 500;">${description}</p>
+                        <div style="
+                            background: ${active ? '#1a1a1a' : '#6c757d'};
+                            color: white;
+                            padding: 8px 16px;
+                            border-radius: 20px;
+                            display: inline-block;
+                            font-weight: bold;
+                            margin-bottom: 10px;
+                        ">
+                            ${type === 'percentage' ? `${discount}% OFF` : 
+                              type === 'fixed' ? `৳${discount} OFF` : 
+                              'FREE SHIPPING'}
+                        </div>
+                        ${expiry ? `<div style="font-size: 12px; opacity: 0.8;">Expires: ${new Date(expiry).toLocaleDateString()}</div>` : ''}
+                        <div style="
+                            margin-top: 10px;
+                            font-size: 12px;
+                            font-weight: bold;
+                            color: ${active ? '#28a745' : '#dc3545'};
+                        ">
+                            ${active ? '✅ ACTIVE' : '❌ INACTIVE'}
+                        </div>
+                    </div>
+                </div>
+            `;
+        });
+
+        // Dashboard initialization
+        document.addEventListener('DOMContentLoaded', function() {
+            // Show custom dashboard on load
+            setTimeout(() => {
+                const dashboard = document.getElementById('custom-dashboard');
+                if (dashboard) {
+                    dashboard.style.display = 'block';
+                }
+            }, 1000);
+
+            // Load real statistics
+            loadRealStatistics();
+        });
+
+        // Load real statistics from data
+        function loadRealStatistics() {
+            try {
+                // Load products data
+                fetch('../products.json')
+                    .then(response => response.json())
+                    .then(products => {
+                        document.getElementById('total-products').textContent = products.length;
+                    })
+                    .catch(() => {
+                        document.getElementById('total-products').textContent = '0';
+                    });
+
+                // Load orders from localStorage
+                const orders = JSON.parse(localStorage.getItem('orders')) || [];
+                document.getElementById('total-orders').textContent = orders.length;
+
+                // Calculate total revenue
+                const totalRevenue = orders.reduce((sum, order) => sum + (order.total || 0), 0);
+                document.getElementById('revenue').textContent = `৳${totalRevenue.toLocaleString()}`;
+
+                // Count active promos (example promo codes)
+                const activePromos = ['WELCOME10', 'SAVE20', 'FIRSTBUY'];
+                document.getElementById('active-promos').textContent = activePromos.length;
+
+            } catch (error) {
+                console.error('Error loading statistics:', error);
+                // Fallback to default values
+                document.getElementById('total-products').textContent = '0';
+                document.getElementById('total-orders').textContent = '0';
+                document.getElementById('active-promos').textContent = '0';
+                document.getElementById('revenue').textContent = '৳0';
+            }
+        }
+
+        // Custom editor components for better content management
+        CMS.registerEditorComponent({
+            id: "price-display",
+            label: "Price Display",
+            fields: [
+                { name: "amount", label: "Amount", widget: "number" },
+                { name: "currency", label: "Currency", widget: "select", options: ["৳", "$", "€"] }
+            ],
+            pattern: /^{{price (\d+) (\S+)}}$/,
+            fromBlock: function(match) {
+                return {
+                    amount: match[1],
+                    currency: match[2]
+                };
+            },
+            toBlock: function(obj) {
+                return `{{price ${obj.amount} ${obj.currency}}}`;
+            },
+            toPreview: function(obj) {
+                return `<span style="color: #d4af37; font-weight: bold; font-size: 18px;">${obj.currency}${obj.amount}</span>`;
+            }
+        });
+
+        CMS.registerEditorComponent({
+            id: "status-badge",
+            label: "Status Badge",
+            fields: [
+                { name: "status", label: "Status", widget: "select", options: ["pending", "confirmed", "processing", "shipped", "delivered", "cancelled"] }
+            ],
+            pattern: /^{{status (\w+)}}$/,
+            fromBlock: function(match) {
+                return { status: match[1] };
+            },
+            toBlock: function(obj) {
+                return `{{status ${obj.status}}}`;
+            },
+            toPreview: function(obj) {
+                const colors = {
+                    'pending': '#ffc107',
+                    'confirmed': '#17a2b8',
+                    'processing': '#fd7e14',
+                    'shipped': '#6f42c1',
+                    'delivered': '#28a745',
+                    'cancelled': '#dc3545'
+                };
+                return `<span style="background: ${colors[obj.status]}; color: white; padding: 4px 8px; border-radius: 4px; font-size: 12px; font-weight: bold; text-transform: uppercase;">${obj.status}</span>`;
+            }
+        });
+    </script>
+</body>
+</html>

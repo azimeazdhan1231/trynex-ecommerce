@@ -1,0 +1,173 @@
+
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "assets/uploads"
+public_folder: "/assets/uploads"
+
+publish_mode: editorial_workflow
+
+collections:
+  - name: "products"
+    label: "Products"
+    folder: "_products"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Product ID", name: "product_id", widget: "number", required: true }
+      - { label: "Product Name (English)", name: "name", widget: "string", required: true }
+      - { label: "Product Name (Bengali)", name: "name_bn", widget: "string", required: true }
+      - { label: "Price (BDT)", name: "price", widget: "number", required: true }
+      - { label: "Category", name: "category", widget: "select", options: ["mugs", "t-shirts", "keychains", "water-bottles", "gift-for-him", "gift-for-her", "gift-for-parents", "for-couple", "gifts-for-babies", "chocolates-flowers", "premium-luxury-gift-hampers"] }
+      - { label: "Image URL", name: "image", widget: "image", required: true }
+      - { label: "Description (English)", name: "description", widget: "text", required: true }
+      - { label: "Description (Bengali)", name: "description_bn", widget: "text", required: true }
+      - { label: "Featured Product", name: "featured", widget: "boolean", default: false }
+      - { label: "In Stock", name: "in_stock", widget: "boolean", default: true }
+      - { label: "Badge", name: "badge", widget: "string", required: false }
+      - { label: "Discount %", name: "discount", widget: "number", required: false }
+      - { label: "Tags", name: "tags", widget: "list", required: false }
+      - { label: "Weight (grams)", name: "weight", widget: "number", required: false }
+      - { label: "Dimensions", name: "dimensions", widget: "string", required: false }
+      - { label: "Material", name: "material", widget: "string", required: false }
+      - { label: "Color Options", name: "colors", widget: "list", required: false }
+      - { label: "Size Options", name: "sizes", widget: "list", required: false }
+
+  - name: "categories"
+    label: "Categories"
+    folder: "_categories"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Category Name", name: "name", widget: "string", required: true }
+      - { label: "Category Name (Bengali)", name: "name_bn", widget: "string", required: true }
+      - { label: "Icon Class", name: "icon", widget: "string", required: true, hint: "Font Awesome icon class (e.g., fas fa-coffee)" }
+      - { label: "Description", name: "description", widget: "text", required: true }
+      - { label: "Description (Bengali)", name: "description_bn", widget: "text", required: true }
+      - { label: "Featured", name: "featured", widget: "boolean", default: false }
+      - { label: "Sort Order", name: "sort_order", widget: "number", default: 0 }
+      - { label: "Category Image", name: "image", widget: "image", required: false }
+
+  - name: "orders"
+    label: "Orders"
+    folder: "_orders"
+    create: true
+    slug: "order-{{fields.order_id}}"
+    fields:
+      - { label: "Order ID", name: "order_id", widget: "string", required: true }
+      - { label: "Customer Name", name: "customer_name", widget: "string", required: true }
+      - { label: "Customer Phone", name: "customer_phone", widget: "string", required: true }
+      - { label: "Customer Email", name: "customer_email", widget: "string", required: false }
+      - { label: "Delivery Address", name: "delivery_address", widget: "text", required: true }
+      - { label: "Order Items", name: "items", widget: "list", fields: [
+          { label: "Product ID", name: "product_id", widget: "string" },
+          { label: "Product Name", name: "product_name", widget: "string" },
+          { label: "Quantity", name: "quantity", widget: "number" },
+          { label: "Price", name: "price", widget: "number" },
+          { label: "Total", name: "total", widget: "number" }
+        ]}
+      - { label: "Order Total", name: "order_total", widget: "number", required: true }
+      - { label: "Advance Payment", name: "advance_payment", widget: "number", default: 100 }
+      - { label: "Payment Method", name: "payment_method", widget: "select", options: ["bkash", "nagad", "upay", "cash"] }
+      - { label: "Transaction ID", name: "transaction_id", widget: "string", required: false }
+      - { label: "Order Status", name: "status", widget: "select", options: ["pending", "confirmed", "processing", "shipped", "delivered", "cancelled"], default: "pending" }
+      - { label: "Payment Status", name: "payment_status", widget: "select", options: ["pending", "partial", "paid", "refunded"], default: "pending" }
+      - { label: "Order Date", name: "order_date", widget: "datetime", required: true }
+      - { label: "Delivery Date", name: "delivery_date", widget: "datetime", required: false }
+      - { label: "Special Instructions", name: "instructions", widget: "text", required: false }
+      - { label: "Admin Notes", name: "admin_notes", widget: "text", required: false }
+      - { label: "Delivery Area", name: "delivery_area", widget: "string", required: true }
+      - { label: "Delivery Charge", name: "delivery_charge", widget: "number", default: 0 }
+
+  - name: "banners"
+    label: "Banner Offers"
+    folder: "_banners"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Banner Title", name: "title", widget: "string", required: true }
+      - { label: "Banner Title (Bengali)", name: "title_bn", widget: "string", required: true }
+      - { label: "Banner Text", name: "text", widget: "string", required: true }
+      - { label: "Banner Text (Bengali)", name: "text_bn", widget: "string", required: true }
+      - { label: "Banner Type", name: "type", widget: "select", options: ["info", "warning", "success", "error", "promo"] }
+      - { label: "Background Color", name: "bg_color", widget: "color", default: "#d4af37" }
+      - { label: "Text Color", name: "text_color", widget: "color", default: "#000000" }
+      - { label: "Active", name: "active", widget: "boolean", default: true }
+      - { label: "Link URL", name: "link", widget: "string", required: false }
+      - { label: "Icon", name: "icon", widget: "string", required: false }
+      - { label: "Start Date", name: "start_date", widget: "datetime", required: false }
+      - { label: "End Date", name: "end_date", widget: "datetime", required: false }
+
+  - name: "promos"
+    label: "Promotions"
+    folder: "_promos"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Promo Code", name: "code", widget: "string", required: true }
+      - { label: "Promo Title", name: "title", widget: "string", required: true }
+      - { label: "Promo Description", name: "description", widget: "text", required: true }
+      - { label: "Discount Type", name: "discount_type", widget: "select", options: ["percentage", "fixed"] }
+      - { label: "Discount Value", name: "discount_value", widget: "number", required: true }
+      - { label: "Minimum Order", name: "minimum_order", widget: "number", default: 0 }
+      - { label: "Maximum Uses", name: "max_uses", widget: "number", default: 100 }
+      - { label: "Used Count", name: "used_count", widget: "number", default: 0 }
+      - { label: "Active", name: "active", widget: "boolean", default: true }
+      - { label: "Start Date", name: "start_date", widget: "datetime", required: true }
+      - { label: "End Date", name: "end_date", widget: "datetime", required: true }
+      - { label: "Applicable Categories", name: "categories", widget: "list", required: false }
+
+  - name: "data"
+    label: "Site Settings"
+    files:
+      - label: "Contact Information"
+        name: "contact"
+        file: "_data/contact.yml"
+        fields:
+          - { label: "Phone Number", name: "phone", widget: "string", required: true }
+          - { label: "WhatsApp Number", name: "whatsapp", widget: "string", required: true }
+          - { label: "Email", name: "email", widget: "string", required: true }
+          - { label: "Address", name: "address", widget: "text", required: true }
+          - { label: "Business Hours", name: "hours", widget: "string", required: true }
+          - { label: "Facebook URL", name: "facebook", widget: "string", required: false }
+          - { label: "Instagram URL", name: "instagram", widget: "string", required: false }
+          - { label: "YouTube URL", name: "youtube", widget: "string", required: false }
+
+      - label: "Payment Settings"
+        name: "payment"
+        file: "_data/payment.yml"
+        fields:
+          - { label: "bKash Number", name: "bkash", widget: "string", required: true }
+          - { label: "Nagad Number", name: "nagad", widget: "string", required: true }
+          - { label: "Upay Number", name: "upay", widget: "string", required: false }
+          - { label: "Bank Account", name: "bank_account", widget: "string", required: false }
+          - { label: "Advance Payment Amount", name: "advance_amount", widget: "number", default: 100 }
+          - { label: "Payment Instructions", name: "instructions", widget: "text", required: true }
+          - { label: "Payment Instructions (Bengali)", name: "instructions_bn", widget: "text", required: true }
+
+      - label: "Homepage Settings"
+        name: "homepage"
+        file: "_data/homepage.yml"
+        fields:
+          - { label: "Hero Title", name: "hero_title", widget: "string", required: true }
+          - { label: "Hero Title (Bengali)", name: "hero_title_bn", widget: "string", required: true }
+          - { label: "Hero Subtitle", name: "hero_subtitle", widget: "text", required: true }
+          - { label: "Hero Subtitle (Bengali)", name: "hero_subtitle_bn", widget: "text", required: true }
+          - { label: "Hero Button Text", name: "hero_button", widget: "string", required: true }
+          - { label: "Hero Button Text (Bengali)", name: "hero_button_bn", widget: "string", required: true }
+          - { label: "About Section Title", name: "about_title", widget: "string", required: true }
+          - { label: "About Section Text", name: "about_text", widget: "text", required: true }
+          - { label: "Featured Products Title", name: "featured_title", widget: "string", required: true }
+          - { label: "Testimonials Section Title", name: "testimonials_title", widget: "string", required: true }
+          - { label: "Testimonials", name: "testimonials", widget: "list", fields: [
+              { label: "Customer Name", name: "name", widget: "string" },
+              { label: "Review", name: "review", widget: "text" },
+              { label: "Rating", name: "rating", widget: "number", min: 1, max: 5 },
+              { label: "Customer Image", name: "image", widget: "image", required: false }
+            ]}
+          - { label: "Delivery Areas", name: "delivery_areas", widget: "list", fields: [
+              { label: "Area Name", name: "area", widget: "string" },
+              { label: "Delivery Charge", name: "charge", widget: "number" },
+              { label: "Delivery Time", name: "time", widget: "string" }
+            ]}

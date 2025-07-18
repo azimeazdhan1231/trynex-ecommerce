@@ -1,0 +1,16 @@
+
+# Admin panel redirects
+/admin              /admin/index.html   200
+/admin/*            /admin/index.html   200
+
+# SPA routing
+/products           /products.html      200
+/track-order        /track-order.html   200
+/track             /track-order.html   200
+
+# API redirects
+/api/products       /products.json      200
+/api/categories     /categories.json    200
+
+# Fallback for 404
+/*                  /index.html         404

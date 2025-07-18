@@ -1,0 +1,32 @@
+Create a landing page for a website named "TryneX" with the following specifications:
+- Design: Ultra-modern, dynamic, and premium impression with a clean layout, reflecting July 2025 trends as of 07:22 PM +06, Thursday, July 17, 2025.
+- Files: Provide static files including index.html, styles.css, and script.js.
+- Admin Panel: Integrate Netlify CMS for content management, including an admin folder with index.html and config.yml for managing products (add, edit, delete), categories, and site content. Ensure the admin panel is accessible via /admin and works with Git-based deployment.
+- Theme: Use a golden (#d4af37), white, and black color scheme applied dynamically throughout with gradients, hover effects, and subtle 3D transitions.
+- Content: Include detailed product information for Facebook catalog ads, featuring the following sample products with realistic images and descriptions (use placeholder images like https://via.placeholder.com/300x300?text=Product+Name if real images are unavailable). Products and categories should be editable via the admin panel:
+  - **Mugs**: প্রিমিয়াম সিরামিক মগ – Starting at ৫৫০৳ (e.g., "Classic Ceramic Mug" - ৫৫০৳, "Designer Mug" - ৬৫০৳)
+  - **T-Shirts**: আরামদায়ক টি-শার্ট – Starting at ৫৫০৳ (e.g., "Comfort T-Shirt" - ৫৫০৳, "Premium Graphic Tee" - ৬০০৳)
+  - **Keychains**: স্টাইলিশ চাবির চেইন – Starting at ৪০০৳ (e.g., "Elegant Keychain" - ৪০০৳, "Custom Keychain" - ৪৫০৳)
+  - **Water Bottles**: ইকো-ফ্রেন্ডলি বোতল – Starting at ৮০০৳ (e.g., "Eco-Friendly Bottle" - ৮০০৳, "Insulated Bottle" - ৯০০৳)
+  - **Gift for Him**: 🎁 স্পেশাল (e.g., "Men’s Leather Wallet" - ১২০০৳)
+  - **Gift for Her**: 💝 এক্সক্লুসিভ (e.g., "Ladies’ Pearl Necklace" - ১৫০০৳)
+  - **Gift for Parents**: ❤️ ভালোবাসা (e.g., "Family Photo Frame" - ১০০০৳)
+  - **Gifts for Babies**: 🍼 সেফ (e.g., "Baby Rattle Set" - ৭০০৳)
+  - **For Couple**: 💑 রোমান্টিক (e.g., "Couple’s Mug Set" - ১১০০৳)
+  - **Premium Luxury Gift Hampers**: 🎁 লাক্সারি (e.g., "Luxury Hamper" - ২৫০০৳)
+  - **Chocolates & Flowers**: 🍫🌹 রোমান্টিক (e.g., "Chocolate Flower Combo" - ১৩০০৳)
+- Features:
+  - Cart System: Fully functional cart with add/remove items, total calculation, and a modal display.
+  - WhatsApp Ordering: Direct order option for each product and cart total, with a secure booking feature. Include a payment validation step where clients must pay a 100 BDT advance via Bkash or Nagad to confirm orders. Use WhatsApp number 01747292277 and Bkash/Nagad number 01747292277.
+  - Categories: Add a category filter dropdown (e.g., Mugs, T-Shirts, Keychains, Water Bottles, Gift for Him, Gift for Her, Gift for Parents, Gifts for Babies, For Couple, Premium Luxury Gift Hampers, Chocolates & Flowers) with dynamic product sorting, manageable via the admin panel.
+  - Search Bar: Implement a live search feature to filter products by name or category.
+  - Newsletter Signup: Add a form for email subscriptions with a success message (e.g., "Thank you for subscribing!").
+  - Responsive Slider: Include a hero section with a sliding banner showcasing featured products or promotions.
+  - Social Proof: Display customer review snippets (e.g., "Amazing quality! - John D.") or trust badges (e.g., "Secure Payment").
+- Navigation: Add a fixed header with links to Home, Shop, Categories, and Contact sections, with a hamburger menu for mobile views.
+- Animation: Showcase the magic of code with advanced animations (e.g., fade-in, slide-in, parallax effects) to reflect July 2025's cutting-edge style.
+- Deployment: Optimize for Netlify deployment with a root-level index.html file, proper admin panel configuration, and environment variables for sensitive data (e.g., WhatsApp/Bkash numbers).
+- Contact: Add a Contact section with a WhatsApp link[](https://wa.me/01747292277) and a form for inquiries.
+- Order Booking Logic: In the cart modal, add a step where users input a Bkash/Nagad transaction ID after paying a 100 BDT advance. Validate the payment with a mock check (e.g., confirm button) and send a WhatsApp message to 01747292277 with order details, transaction ID, and a confirmation request only if the advance is paid.
+- Responsiveness: Ensure the design is fully responsive with media queries for all devices, including touch-friendly interactions.
+- Performance: Optimize with lazy loading for images and minified CSS/JS for faster load times.

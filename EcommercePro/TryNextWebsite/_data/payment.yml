@@ -1,0 +1,6 @@
+advance_amount: 100
+methods:
+  - "bKash"
+  - "Nagad"
+  - "Upay"
+instructions: "Send 100 BDT advance payment to 01747-292277 via bKash, Nagad, or Upay. After payment, copy the transaction ID and paste it during checkout. Remaining amount will be collected on delivery."

@@ -1,0 +1,18 @@
+{
+  "name": "trynex-ecommerce",
+  "version": "1.0.0",
+  "description": "TryneX E-commerce Platform - Premium gifts and lifestyle products",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx http-server -p 8080 -c-1",
+    "start": "npx http-server -p 8080 -c-1",
+    "build": "echo 'Static site - no build needed'",
+    "test": "echo 'No tests specified'"
+  },
+  "keywords": ["ecommerce", "static", "netlify", "gifts"],
+  "author": "TryneX",
+  "license": "MIT",
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}
