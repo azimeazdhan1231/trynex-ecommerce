@@ -1,0 +1,746 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "name": "Classic Ceramic Mug",
+      "price": 550,
+      "originalPrice": 700,
+      "category": "mugs",
+      "image": "https://images.unsplash.com/photo-1514228742587-6b1558fcf93a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
+      "description": "Premium quality ceramic mug with elegant golden rim finish",
+      "rating": 4.8,
+      "reviews": 24,
+      "inStock": true,
+      "isOnSale": true,
+      "discount": 21,
+      "variants": {
+        "color": ["White", "Black", "Gold"],
+        "size": ["250ml", "350ml", "500ml"]
+      },
+      "tags": ["premium", "ceramic", "golden rim"]
+    },
+    {
+      "id": "2",
+      "name": "Designer Mug",
+      "price": 650,
+      "category": "mugs",
+      "image": "https://images.unsplash.com/photo-1581330221805-3b14cc57e44c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
+      "description": "Artistic designer mug with unique patterns and premium finish",
+      "rating": 4.6,
+      "reviews": 18,
+      "inStock": true,
+      "isNew": true,
+      "variants": {
+        "color": ["Blue", "Red", "Green"],
+        "size": ["300ml", "400ml"]
+      },
+      "tags": ["designer", "artistic", "unique"]
+    },
+    {
+      "id": "3",
+      "name": "Personalized Mug",
+      "price": 700,
+      "category": "mugs",
+      "image": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
+      "description": "Custom personalized mug with your name or photo",
+      "rating": 4.9,
+      "reviews": 35,
+      "inStock": true,
+      "variants": {
+        "color": ["White", "Black"],
+        "size": ["350ml", "500ml"]
+      },
+      "tags": ["personalized", "custom", "gift"]
+    },
+    {
+      "id": "4",
+      "name": "Travel Mug",
+      "price": 800,
+      "category": "mugs",
+      "image": "https://images.unsplash.com/photo-1611074774996-3d2b9c87d1f0?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
+      "description": "Insulated travel mug with spill-proof lid",
+      "rating": 4.7,
+      "reviews": 29,
+      "inStock": true,
+      "variants": {
+        "color": ["Silver", "Black", "Blue"],
+        "size": ["400ml", "600ml"]
+      },
+      "tags": ["travel", "insulated", "spill-proof"]
+    },
+    {
+      "id": "5",
+      "name": "Comfort T-Shirt",
+      "price": 550,
+      "category": "tshirts",
+      "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
+      "description": "Premium cotton t-shirt with comfortable fit",
+      "rating": 4.5,
+      "reviews": 42,
+      "inStock": true,
+      "variants": {
+        "color": ["White", "Black", "Navy", "Gray"],
+        "size": ["S", "M", "L", "XL", "XXL"]
+      },
+      "tags": ["comfort", "cotton", "premium"]
+    },
+    {
+      "id": "6",
+      "name": "Premium Graphic Tee",
+      "price": 600,
+      "category": "tshirts",
+      "image": "https://images.unsplash.com/photo-1562157873-818bc0726bd1?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
+      "description": "Stylish graphic t-shirt with modern design",
+      "rating": 4.4,
+      "reviews": 33,
+      "inStock": true,
+      "lowStock": true,
+      "variants": {
+        "color": ["Black", "White", "Red"],
+        "size": ["S", "M", "L", "XL"]
+      },
+      "tags": ["graphic", "stylish", "modern"]
+    },
+    {
+      "id": "7",
+      "name": "Custom T-Shirt",
+      "price": 650,
+      "category": "tshirts",
+      "image": "https://images.unsplash.com/photo-1503341504253-dff4815485f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
+      "description": "Customizable t-shirt with your design or text",
+      "rating": 4.8,
+      "reviews": 56,
+      "inStock": true,
+      "variants": {
+        "color": ["White", "Black", "Gray", "Navy"],
+        "size": ["S", "M", "L", "XL", "XXL"]
+      },
+      "tags": ["custom", "personalized", "design"]
+    },
+    {
+      "id": "8",
+      "name": "Oversized Tee",
+      "price": 700,
+      "category": "tshirts",
+      "image": "https://images.unsplash.com/photo-1576566588028-4147f3842f27?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
+      "description": "Trendy oversized t-shirt for casual wear",
+      "rating": 4.6,
+      "reviews": 21,
+      "inStock": true,
+      "isNew": true,
+      "variants": {
+        "color": ["Beige", "Black", "White"],
+        "size": ["M", "L", "XL", "XXL"]
+      },
+      "tags": ["oversized", "trendy", "casual"]
+    },
+    {
+      "id": "9",
+      "name": "Elegant Keychain",
+      "price": 400,
+      "category": "keychains",
+      "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
+      "description": "Elegant metal keychain with premium finish",
+      "rating": 4.7,
+      "reviews": 67,
+      "inStock": true,
+      "variants": {
+        "color": ["Gold", "Silver", "Bronze"]
+      },
+      "tags": ["elegant", "metal", "premium"]
+    },
+    {
+      "id": "10",
+      "name": "Custom Keychain",
+      "price": 450,
+      "category": "keychains",
+      "image": "https://images.unsplash.com/photo-1555274175-6cbf6f3b137b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
+      "description": "Personalized keychain with custom engraving",
+      "rating": 4.9,
+      "reviews": 89,
+      "inStock": true,
+      "variants": {
+        "color": ["Silver", "Gold", "Black"]
+      },
+      "tags": ["custom", "engraving", "personalized"]
+    },
+    {
+      "id": "11",
+      "name": "Metal Keychain",
+      "price": 500,
+      "category": "keychains",
+      "image": "https://images.unsplash.com/photo-1586953981332-f0e65b6e1b3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
+      "description": "Durable metal keychain with stylish design",
+      "rating": 4.5,
+      "reviews": 43,
+      "inStock": true,
+      "variants": {
+        "color": ["Silver", "Black", "Gold"]
+      },
+      "tags": ["metal", "durable", "stylish"]
+    },
+    {
+      "id": "12",
+      "name": "Leather Keychain",
+      "price": 600,
+      "category": "keychains",
+      "image": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
+      "description": "Premium leather keychain with elegant look",
+      "rating": 4.8,
+      "reviews": 32,
+      "inStock": true,
+      "variants": {
+        "color": ["Brown", "Black", "Tan"]
+      },
+      "tags": ["leather", "premium", "elegant"]
+    },
+    {
+      "id": "13",
+      "name": "Eco-Friendly Bottle",
+      "price": 800,
+      "category": "bottles",
+      "image": "https://images.unsplash.com/photo-1602143407151-7111542de6e8?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
+      "description": "Eco-friendly water bottle made from sustainable materials",
+      "rating": 4.6,
+      "reviews": 58,
+      "inStock": true,
+      "variants": {
+        "color": ["Green", "Blue", "White"],
+        "size": ["500ml", "750ml", "1000ml"]
+      },
+      "tags": ["eco-friendly", "sustainable", "water"]
+    },
+    {
+      "id": "14",
+      "name": "Insulated Bottle",
+      "price": 900,
+      "category": "bottles",
+      "image": "https://images.unsplash.com/photo-1523362628745-0c100150b504?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
+      "description": "Double-wall insulated bottle keeps drinks hot or cold",
+      "rating": 4.7,
+      "reviews": 76,
+      "inStock": true,
+      "variants": {
+        "color": ["Silver", "Black", "Blue"],
+        "size": ["500ml", "750ml", "1000ml"]
+      },
+      "tags": ["insulated", "double-wall", "temperature"]
+    },
+    {
+      "id": "15",
+      "name": "Stainless Steel Bottle",
+      "price": 1000,
+      "category": "bottles",
+      "image": "https://images.unsplash.com/photo-1564090962-3b8d9e4d1e8d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
+      "description": "Premium stainless steel bottle with leak-proof design",
+      "rating": 4.8,
+      "reviews": 92,
+      "inStock": true,
+      "variants": {
+        "color": ["Silver", "Black", "Gold"],
+        "size": ["500ml", "750ml", "1000ml"]
+      },
+      "tags": ["stainless steel", "leak-proof", "premium"]
+    },
+    {
+      "id": "16",
+      "name": "Sports Bottle",
+      "price": 1100,
+      "category": "bottles",
+      "image": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
+      "description": "Sports water bottle with easy-grip design",
+      "rating": 4.5,
+      "reviews": 34,
+      "inStock": true,
+      "variants": {
+        "color": ["Red", "Blue", "Green"],
+        "size": ["600ml", "800ml", "1000ml"]
+      },
+      "tags": ["sports", "grip", "athletic"]
+    },
+    {
+      "id": "17",
+      "name": "Men's Leather Wallet",
+      "price": 1200,
+      "category": "gifts-him",
+      "image": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
+      "description": "Premium genuine leather wallet with RFID protection",
+      "rating": 4.9,
+      "reviews": 124,
+      "inStock": true,
+      "variants": {
+        "color": ["Brown", "Black", "Tan"]
+      },
+      "tags": ["leather", "RFID", "premium", "wallet"]
+    },
+    {
+      "id": "18",
+      "name": "Men's Watch",
+      "price": 1500,
+      "category": "gifts-him",
+      "image": "https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
+      "description": "Elegant men's watch with steel bracelet",
+      "rating": 4.7,
+      "reviews": 87,
+      "inStock": true,
+      "variants": {
+        "color": ["Silver", "Gold", "Black"]
+      },
+      "tags": ["watch", "elegant", "steel"]
+    },
+    {
+      "id": "19",
+      "name": "Perfume Set",
+      "price": 1800,
+      "category": "gifts-him",
+      "image": "https://images.unsplash.com/photo-1541643600914-78b084683601?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
+      "description": "Premium perfume set for men with multiple fragrances",
+      "rating": 4.6,
+      "reviews": 65,
+      "inStock": true,
+      "tags": ["perfume", "fragrance", "premium"]
+    },
+    {
+      "id": "20",
+      "name": "Tie Set",
+      "price": 2000,
+      "category": "gifts-him",
+      "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
+      "description": "Elegant tie set with cufflinks and tie clip",
+      "rating": 4.8,
+      "reviews": 43,
+      "inStock": true,
+      "variants": {
+        "color": ["Blue", "Red", "Black", "Gray"]
+      },
+      "tags": ["tie", "cufflinks", "elegant"]
+    },
+    {
+      "id": "21",
+      "name": "Ladies' Pearl Necklace",
+      "price": 1500,
+      "category": "gifts-her",
+      "image": "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
+      "description": "Elegant freshwater pearl necklace with gold clasp",
+      "rating": 4.9,
+      "reviews": 156,
+      "inStock": true,
+      "variants": {
+        "color": ["White", "Cream", "Pink"]
+      },
+      "tags": ["pearl", "necklace", "elegant"]
+    },
+    {
+      "id": "22",
+      "name": "Handbag Set",
+      "price": 1800,
+      "category": "gifts-her",
+      "image": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
+      "description": "Premium handbag set with matching wallet",
+      "rating": 4.7,
+      "reviews": 98,
+      "inStock": true,
+      "variants": {
+        "color": ["Brown", "Black", "Red", "Pink"]
+      },
+      "tags": ["handbag", "wallet", "premium"]
+    },
+    {
+      "id": "23",
+      "name": "Earring Set",
+      "price": 2000,
+      "category": "gifts-her",
+      "image": "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
+      "description": "Beautiful earring set with multiple pairs",
+      "rating": 4.8,
+      "reviews": 72,
+      "inStock": true,
+      "variants": {
+        "color": ["Gold", "Silver", "Rose Gold"]
+      },
+      "tags": ["earrings", "jewelry", "beautiful"]
+    },
+    {
+      "id": "24",
+      "name": "Spa Kit",
+      "price": 2200,
+      "category": "gifts-her",
+      "image": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
+      "description": "Luxurious spa kit with essential oils and accessories",
+      "rating": 4.6,
+      "reviews": 84,
+      "inStock": true,
+      "tags": ["spa", "relaxation", "luxurious"]
+    },
+    {
+      "id": "25",
+      "name": "Family Photo Frame",
+      "price": 1000,
+      "category": "gifts-parents",
+      "image": "https://images.unsplash.com/photo-1511895426328-dc8714191300?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
+      "description": "Beautiful family photo frame with multiple slots",
+      "rating": 4.7,
+      "reviews": 118,
+      "inStock": true,
+      "variants": {
+        "color": ["Brown", "Black", "White", "Silver"]
+      },
+      "tags": ["photo frame", "family", "beautiful"]
+    },
+    {
+      "id": "26",
+      "name": "Personalized Plaque",
+      "price": 1300,
+      "category": "gifts-parents",
+      "image": "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
+      "description": "Custom wooden plaque with family name and message",
+      "rating": 4.8,
+      "reviews": 95,
+      "inStock": true,
+      "variants": {
+        "color": ["Natural Wood", "Dark Wood", "White"]
+      },
+      "tags": ["plaque", "personalized", "wooden"]
+    },
+    {
+      "id": "27",
+      "name": "Couple Mug Set",
+      "price": 1500,
+      "category": "gifts-parents",
+      "image": "https://images.unsplash.com/photo-1514228742587-6b1558fcf93a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
+      "description": "Matching couple mug set with romantic designs",
+      "rating": 4.9,
+      "reviews": 203,
+      "inStock": true,
+      "variants": {
+        "color": ["White", "Red", "Pink"]
+      },
+      "tags": ["couple", "mug set", "romantic"]
+    },
+    {
+      "id": "28",
+      "name": "Memory Book",
+      "price": 1700,
+      "category": "gifts-parents",
+      "image": "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
+      "description": "Premium memory book for cherished moments",
+      "rating": 4.6,
+      "reviews": 67,
+      "inStock": true,
+      "variants": {
+        "color": ["Brown", "Black", "Burgundy"]
+      },
+      "tags": ["memory book", "premium", "moments"]
+    },
+    {
+      "id": "29",
+      "name": "Baby Rattle Set",
+      "price": 700,
+      "category": "gifts-babies",
+      "image": "https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
+      "description": "Safe and colorful baby rattle set",
+      "rating": 4.8,
+      "reviews": 142,
+      "inStock": true,
+      "variants": {
+        "color": ["Multi-color", "Pastel"]
+      },
+      "tags": ["baby", "rattle", "safe"]
+    },
+    {
+      "id": "30",
+      "name": "Soft Toy Bundle",
+      "price": 850,
+      "category": "gifts-babies",
+      "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
+      "description": "Adorable soft toy bundle for babies",
+      "rating": 4.7,
+      "reviews": 89,
+      "inStock": true,
+      "variants": {
+        "color": ["Pink", "Blue", "Yellow"]
+      },
+      "tags": ["soft toy", "bundle", "adorable"]
+    },
+    {
+      "id": "31",
+      "name": "Baby Blanket",
+      "price": 950,
+      "category": "gifts-babies",
+      "image": "https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
+      "description": "Soft and warm baby blanket with cute designs",
+      "rating": 4.9,
+      "reviews": 178,
+      "inStock": true,
+      "variants": {
+        "color": ["Pink", "Blue", "White", "Yellow"]
+      },
+      "tags": ["baby blanket", "soft", "warm"]
+    },
+    {
+      "id": "32",
+      "name": "Teether Set",
+      "price": 1000,
+      "category": "gifts-babies",
+      "image": "https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
+      "description": "Safe silicone teether set for babies",
+      "rating": 4.6,
+      "reviews": 94,
+      "inStock": true,
+      "variants": {
+        "color": ["Multi-color", "Pastel"]
+      },
+      "tags": ["teether", "silicone", "safe"]
+    },
+    {
+      "id": "33",
+      "name": "Couple's Mug Set",
+      "price": 1100,
+      "category": "couple",
+      "image": "https://images.unsplash.com/photo-1514228742587-6b1558fcf93a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
+      "description": "Romantic couple's mug set with matching designs",
+      "rating": 4.8,
+      "reviews": 156,
+      "inStock": true,
+      "variants": {
+        "color": ["White", "Red", "Pink"]
+      },
+      "tags": ["couple", "romantic", "matching"]
+    },
+    {
+      "id": "34",
+      "name": "Love Photo Frame",
+      "price": 1400,
+      "category": "couple",
+      "image": "https://images.unsplash.com/photo-1511895426328-dc8714191300?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
+      "description": "Beautiful love-themed photo frame for couples",
+      "rating": 4.7,
+      "reviews": 87,
+      "inStock": true,
+      "variants": {
+        "color": ["Red", "Pink", "Gold", "Silver"]
+      },
+      "tags": ["love", "photo frame", "couple"]
+    },
+    {
+      "id": "35",
+      "name": "Couple Keychain",
+      "price": 1600,
+      "category": "couple",
+      "image": "https://images.unsplash.com/photo-1555274175-6cbf6f3b137b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
+      "description": "Matching couple keychain set with romantic design",
+      "rating": 4.9,
+      "reviews": 234,
+      "inStock": true,
+      "variants": {
+        "color": ["Silver", "Gold", "Rose Gold"]
+      },
+      "tags": ["couple", "keychain", "matching"]
+    },
+    {
+      "id": "36",
+      "name": "Heart Pendant",
+      "price": 1800,
+      "category": "couple",
+      "image": "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
+      "description": "Elegant heart pendant for couples",
+      "rating": 4.8,
+      "reviews": 76,
+      "inStock": true,
+      "variants": {
+        "color": ["Gold", "Silver", "Rose Gold"]
+      },
+      "tags": ["heart", "pendant", "elegant"]
+    },
+    {
+      "id": "37",
+      "name": "Luxury Hamper",
+      "price": 2500,
+      "category": "hampers",
+      "image": "https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
+      "description": "Premium luxury gift hamper with assorted items",
+      "rating": 4.9,
+      "reviews": 298,
+      "inStock": true,
+      "tags": ["luxury", "hamper", "premium"]
+    },
+    {
+      "id": "38",
+      "name": "Deluxe Gift Box",
+      "price": 3000,
+      "category": "hampers",
+      "image": "https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
+      "description": "Deluxe gift box with premium products",
+      "rating": 4.8,
+      "reviews": 187,
+      "inStock": true,
+      "tags": ["deluxe", "gift box", "premium"]
+    },
+    {
+      "id": "39",
+      "name": "Premium Hamper",
+      "price": 3500,
+      "category": "hampers",
+      "image": "https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
+      "description": "Premium hamper with exclusive items",
+      "rating": 4.7,
+      "reviews": 134,
+      "inStock": true,
+      "tags": ["premium", "hamper", "exclusive"]
+    },
+    {
+      "id": "40",
+      "name": "Elite Basket",
+      "price": 4000,
+      "category": "hampers",
+      "image": "https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
+      "description": "Elite gift basket with luxury items",
+      "rating": 4.9,
+      "reviews": 95,
+      "inStock": true,
+      "tags": ["elite", "basket", "luxury"]
+    },
+    {
+      "id": "41",
+      "name": "Chocolate Flower Combo",
+      "price": 1300,
+      "category": "chocolates-flowers",
+      "image": "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
+      "description": "Beautiful combination of chocolates and flowers",
+      "rating": 4.8,
+      "reviews": 167,
+      "inStock": true,
+      "tags": ["chocolate", "flowers", "combo"]
+    },
+    {
+      "id": "42",
+      "name": "Rose & Truffle Set",
+      "price": 1600,
+      "category": "chocolates-flowers",
+      "image": "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
+      "description": "Premium roses with luxury chocolate truffles",
+      "rating": 4.9,
+      "reviews": 243,
+      "inStock": true,
+      "tags": ["rose", "truffle", "premium"]
+    },
+    {
+      "id": "43",
+      "name": "Flower Bouquet",
+      "price": 1800,
+      "category": "chocolates-flowers",
+      "image": "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
+      "description": "Fresh flower bouquet with assorted blooms",
+      "rating": 4.7,
+      "reviews": 198,
+      "inStock": true,
+      "variants": {
+        "color": ["Mixed", "Red", "Pink", "White"]
+      },
+      "tags": ["flower", "bouquet", "fresh"]
+    },
+    {
+      "id": "44",
+      "name": "Chocolate Tower",
+      "price": 2000,
+      "category": "chocolates-flowers",
+      "image": "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
+      "description": "Impressive chocolate tower with premium chocolates",
+      "rating": 4.8,
+      "reviews": 156,
+      "inStock": true,
+      "tags": ["chocolate", "tower", "premium"]
+    },
+    {
+      "id": "45",
+      "name": "Scented Candles",
+      "price": 600,
+      "category": "others",
+      "image": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
+      "description": "Aromatic scented candles for relaxation",
+      "rating": 4.6,
+      "reviews": 89,
+      "inStock": true,
+      "variants": {
+        "color": ["Vanilla", "Lavender", "Rose", "Sandalwood"]
+      },
+      "tags": ["scented", "candles", "relaxation"]
+    },
+    {
+      "id": "46",
+      "name": "Jewelry Box",
+      "price": 1400,
+      "category": "others",
+      "image": "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
+      "description": "Elegant jewelry box with multiple compartments",
+      "rating": 4.7,
+      "reviews": 112,
+      "inStock": true,
+      "variants": {
+        "color": ["Brown", "Black", "Pink", "White"]
+      },
+      "tags": ["jewelry", "box", "elegant"]
+    },
+    {
+      "id": "47",
+      "name": "Custom Pillow",
+      "price": 900,
+      "category": "others",
+      "image": "https://images.unsplash.com/photo-1586953208448-b95a79798f07?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
+      "description": "Custom printed pillow with your design",
+      "rating": 4.5,
+      "reviews": 78,
+      "inStock": true,
+      "variants": {
+        "color": ["White", "Beige", "Gray"],
+        "size": ["40x40cm", "50x50cm", "60x60cm"]
+      },
+      "tags": ["custom", "pillow", "printed"]
+    },
+    {
+      "id": "48",
+      "name": "Leather Diary",
+      "price": 1100,
+      "category": "others",
+      "image": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
+      "description": "Premium leather diary with personalization",
+      "rating": 4.8,
+      "reviews": 145,
+      "inStock": true,
+      "variants": {
+        "color": ["Brown", "Black", "Tan"]
+      },
+      "tags": ["leather", "diary", "premium"]
+    },
+    {
+      "id": "49",
+      "name": "Wooden Pen Set",
+      "price": 1300,
+      "category": "others",
+      "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
+      "description": "Elegant wooden pen set with engraving",
+      "rating": 4.7,
+      "reviews": 67,
+      "inStock": true,
+      "variants": {
+        "color": ["Natural", "Dark Wood", "Cherry"]
+      },
+      "tags": ["wooden", "pen set", "elegant"]
+    },
+    {
+      "id": "50",
+      "name": "Glass Vase",
+      "price": 1500,
+      "category": "others",
+      "image": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
+      "description": "Beautiful glass vase for home decoration",
+      "rating": 4.6,
+      "reviews": 93,
+      "inStock": true,
+      "variants": {
+        "color": ["Clear", "Blue", "Green", "Amber"]
+      },
+      "tags": ["glass", "vase", "decoration"]
+    }
+  ]
+}

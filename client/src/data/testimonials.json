@@ -1,0 +1,58 @@
+{
+  "testimonials": [
+    {
+      "id": "1",
+      "name": "Ahmed Rahman",
+      "location": "Dhaka, Bangladesh",
+      "rating": 5,
+      "comment": "Amazing quality products! The personalized mug I ordered was exactly what I wanted. Fast delivery and excellent customer service. Highly recommend TryneX!",
+      "avatar": "A",
+      "date": "2025-01-15"
+    },
+    {
+      "id": "2",
+      "name": "Fatima Begum",
+      "location": "Chittagong, Bangladesh",
+      "rating": 5,
+      "comment": "Perfect gift for my husband! The personalized keychain was beautifully crafted and he loved it. The packaging was also very elegant.",
+      "avatar": "F",
+      "date": "2025-01-10"
+    },
+    {
+      "id": "3",
+      "name": "Mehedi Hasan",
+      "location": "Sylhet, Bangladesh",
+      "rating": 4,
+      "comment": "Great customer service and fast delivery. The premium gift hamper was perfect for our anniversary. Will definitely order again!",
+      "avatar": "M",
+      "date": "2025-01-08"
+    },
+    {
+      "id": "4",
+      "name": "Rashida Khatun",
+      "location": "Rajshahi, Bangladesh",
+      "rating": 5,
+      "comment": "The pearl necklace is absolutely gorgeous! The quality exceeded my expectations. TryneX has become my go-to for premium gifts.",
+      "avatar": "R",
+      "date": "2025-01-05"
+    },
+    {
+      "id": "5",
+      "name": "Karim Uddin",
+      "location": "Barisal, Bangladesh",
+      "rating": 4,
+      "comment": "Excellent product quality and reasonable prices. The leather wallet is premium quality and the delivery was on time.",
+      "avatar": "K",
+      "date": "2025-01-03"
+    },
+    {
+      "id": "6",
+      "name": "Shahida Begum",
+      "location": "Khulna, Bangladesh",
+      "rating": 5,
+      "comment": "Wonderful experience shopping at TryneX. The t-shirt quality is outstanding and the customer support is very helpful.",
+      "avatar": "S",
+      "date": "2025-01-01"
+    }
+  ]
+}

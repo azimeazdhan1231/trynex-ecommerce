@@ -1,0 +1,114 @@
+{
+  "categories": [
+    {
+      "id": "mugs",
+      "name": "Mugs",
+      "namebn": "প্রিমিয়াম সিরামিক মগ",
+      "description": "Premium ceramic mugs with elegant designs",
+      "image": "https://images.unsplash.com/photo-1514228742587-6b1558fcf93a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
+      "startingPrice": 550,
+      "productCount": 4,
+      "icon": "☕"
+    },
+    {
+      "id": "tshirts",
+      "name": "T-Shirts",
+      "namebn": "আরামদায়ক টি-শার্ট",
+      "description": "Comfortable and stylish t-shirts",
+      "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
+      "startingPrice": 550,
+      "productCount": 4,
+      "icon": "👕"
+    },
+    {
+      "id": "keychains",
+      "name": "Keychains",
+      "namebn": "স্টাইলিশ চাবির চেইন",
+      "description": "Stylish and elegant keychains",
+      "image": "https://images.unsplash.com/photo-1555274175-6cbf6f3b137b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
+      "startingPrice": 400,
+      "productCount": 4,
+      "icon": "🔑"
+    },
+    {
+      "id": "bottles",
+      "name": "Water Bottles",
+      "namebn": "ইকো-ফ্রেন্ডলি বোতল",
+      "description": "Eco-friendly and insulated water bottles",
+      "image": "https://images.unsplash.com/photo-1602143407151-7111542de6e8?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
+      "startingPrice": 800,
+      "productCount": 4,
+      "icon": "💧"
+    },
+    {
+      "id": "gifts-him",
+      "name": "Gift for Him",
+      "namebn": "স্পেশাল",
+      "description": "Special gifts for men",
+      "image": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
+      "startingPrice": 1200,
+      "productCount": 4,
+      "icon": "🎁"
+    },
+    {
+      "id": "gifts-her",
+      "name": "Gift for Her",
+      "namebn": "এক্সক্লুসিভ",
+      "description": "Exclusive gifts for women",
+      "image": "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
+      "startingPrice": 1500,
+      "productCount": 4,
+      "icon": "💝"
+    },
+    {
+      "id": "gifts-parents",
+      "name": "Gift for Parents",
+      "namebn": "ভালোবাসা",
+      "description": "Loving gifts for parents",
+      "image": "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
+      "startingPrice": 1000,
+      "productCount": 4,
+      "icon": "❤️"
+    },
+    {
+      "id": "gifts-babies",
+      "name": "Gifts for Babies",
+      "namebn": "সেফ",
+      "description": "Safe and adorable gifts for babies",
+      "image": "https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
+      "startingPrice": 700,
+      "productCount": 4,
+      "icon": "🍼"
+    },
+    {
+      "id": "couple",
+      "name": "For Couple",
+      "namebn": "রোমান্টিক",
+      "description": "Romantic gifts for couples",
+      "image": "https://images.unsplash.com/photo-1518199266791-5375a83190b7?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
+      "startingPrice": 1100,
+      "productCount": 4,
+      "icon": "💑"
+    },
+    {
+      "id": "hampers",
+      "name": "Premium Luxury Gift Hampers",
+      "namebn": "লাক্সারি",
+      "description": "Luxury gift hampers with premium items",
+      "image": "https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
+      "startingPrice": 2500,
+      "productCount": 4,
+      "icon": "🎁"
+    },
+    {
+      "id": "chocolates-flowers",
+      "name": "Chocolates & Flowers",
+      "namebn": "রোমান্টিক",
+      "description": "Romantic chocolates and flowers",
+      "image": "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
+      "startingPrice": 1300,
+      "productCount": 4,
+      "icon": "🍫🌹"
+    }
+  ]
+}

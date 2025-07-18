@@ -1,0 +1,75 @@
+Create a comprehensive premium e-commerce platform for a website named "TryneX" with the following specifications, ensuring all files are generated for download and compatible with Netlify deployment and GitHub hosting, with full integration to Netlify CMS:
+
+- Design: Ultra-modern, dynamic, and premium impression with a clean layout, reflecting July 2025 trends as of 12:04 PM +06, Friday, July 18, 2025, optimized for perfect responsiveness across all screen sizes with precise breakpoints (e.g., 320px, 768px, 1024px, 1440px) to ensure proper product card layout and button sizing, preventing issues like auto-opening navbars on smaller screens.
+- Files: Generate static files including index.html, styles.css, script.js, products.html, blog.html, products.json, categories.json, and an admin folder (with index.html and config.yml) organized in the root directory. Ensure minified CSS/JS, lazy-loaded images, and clean, well-formed JSON structures (products.json with 50+ items, categories.json with 11 categories) for download. Provide a ZIP file or folder structure ready for upload to Netlify and GitHub.
+- Admin Panel: Integrate Netlify CMS for content management, with an admin folder containing index.html and config.yml configured with proper YAML structure for managing products (add, edit, delete), categories, orders, promo codes, banners, offers, order statuses, blog posts, FAQs, reviews, and inventory. Ensure the admin panel is accessible via /admin with role-based access (e.g., Admin, Editor), works with Git-based deployment, and reflects real-time data with functional category tabs, avoiding blank sections.
+- Theme: Use a golden (#d4af37), white, and black color scheme applied dynamically with gradients, hover effects, subtle 3D transitions, and advanced animations (e.g., fade-in, slide-in, parallax, 3D tilt effects) for a premium feel across all devices.
+- Content: Include a complete product catalog with 50+ items across 11 categories, with detailed information for Facebook catalog ads, featuring realistic images and descriptions (use https://via.placeholder.com/300x300?text=Product+Name if real images are unavailable), stored in products.json. Categories are managed via categories.json, both editable via the admin panel:
+  - **Mugs**: প্রিমিয়াম সিরামিক মগ – Starting at ৫৫০৳ (e.g., "Classic Ceramic Mug" - ৫৫০৳, "Designer Mug" - ৬৫০৳, "Personalized Mug" - ৭০০৳, "Travel Mug" - ৮০০৳)
+  - **T-Shirts**: আরামদায়ক টি-শার্ট – Starting at ৫৫০৳ (e.g., "Comfort T-Shirt" - ৫৫০৳, "Premium Graphic Tee" - ৬০০৳, "Custom T-Shirt" - ৬৫০৳, "Oversized Tee" - ৭০০৳)
+  - **Keychains**: স্টাইলিশ চাবির চেইন – Starting at ৪০০৳ (e.g., "Elegant Keychain" - ৪০০৳, "Custom Keychain" - ৪৫০৳, "Metal Keychain" - ৫০০৳, "Leather Keychain" - ৬০০৳)
+  - **Water Bottles**: ইকো-ফ্রেন্ডলি বোতল – Starting at ৮০০৳ (e.g., "Eco-Friendly Bottle" - ৮০০৳, "Insulated Bottle" - ৯০০৳, "Stainless Steel Bottle" - ১০০০৳, "Sports Bottle" - ১১০০৳)
+  - **Gift for Him**: 🎁 স্পেশাল (e.g., "Men’s Leather Wallet" - ১২০০৳, "Men’s Watch" - ১৫০০৳, "Perfume Set" - ১৮০০৳, "Tie Set" - ২০০৳)
+  - **Gift for Her**: 💝 এক্সক্লুসিভ (e.g., "Ladies’ Pearl Necklace" - ১৫০০৳, "Handbag Set" - ১৮০০৳, "Earring Set" - ২০০০৳, "Spa Kit" - ২২০০৳)
+  - **Gift for Parents**: ❤️ ভালোবাসা (e.g., "Family Photo Frame" - ১০০০৳, "Personalized Plaque" - ১৩০০৳, "Couple Mug Set" - ১৫০০৳, "Memory Book" - ১৭০০৳)
+  - **Gifts for Babies**: 🍼 সেফ (e.g., "Baby Rattle Set" - ৭০০৳, "Soft Toy Bundle" - ৮৫০৳, "Baby Blanket" - ৯৫০৳, "Teether Set" - ১০০০৳)
+  - **For Couple**: 💑 রোমান্টিক (e.g., "Couple’s Mug Set" - ১১০০৳, "Love Photo Frame" - ১৪০০৳, "Couple Keychain" - ১৬০০৳, "Heart Pendant" - ১৮০০৳)
+  - **Premium Luxury Gift Hampers**: 🎁 লাক্সারি (e.g., "Luxury Hamper" - ২৫০০৳, "Deluxe Gift Box" - ৩০০০৳, "Premium Hamper" - ৩৫০০৳, "Elite Basket" - ৪০০০৳)
+  - **Chocolates & Flowers**: 🍫🌹 রোমান্টিক (e.g., "Chocolate Flower Combo" - ১৩০০৳, "Rose & Truffle Set" - ১৬০০৳, "Flower Bouquet" - ১৮০০৳, "Chocolate Tower" - ২০০০৳)
+  - Additional Products: Include 39 more items (e.g., "Scented Candles" - ৬০০৳, "Jewelry Box" - ১৪০০৳, "Custom Pillow" - ৯০০৳, "Leather Diary" - ১১০০৳, "Wooden Pen Set" - ১৩০০৳, "Glass Vase" - ১৫০০৳, "Phone Stand" - ৭০০৳) with varied pricing and categories.
+- Features:
+  - Cart System: Implement a multi-step cart system with quantity selectors, size/color variants (editable via admin), total calculation, modal display, a "Any Instruction" text box for client wishes, and complete order processing with three methods: WhatsApp (optional, 01747292277 with 100 BDT advance validation), Email (via Netlify Functions), and Direct (on-site confirmation with unique order ID generation).
+  - Order Management: Provide an order management system with unique order IDs (e.g., TXR-20250718-001 format), a dynamic responsive dashboard with copy functionality, and a "Track Status" page for clients to monitor status (e.g., Pending, Processing, Shipped, Delivered).
+  - Order Tracking: Include a client-facing "Track Status" page linked to order IDs, updating in real-time from the admin panel.
+  - Category Filtering: Add advanced category filtering with price range sliders, manageable via the admin panel.
+  - Live Search: Implement a live search with autocomplete suggestions and search history, optimized for all devices with a YouTube-like algorithm, ensuring no overlap.
+  - Promo Code System: Add a promo code section in the cart modal with real-time validation, integrating admin-created codes (e.g., add, edit, delete, set expiry).
+  - WhatsApp Ordering: Optional integration with WhatsApp number 01747292277 for direct orders with payment validation (100 BDT advance via Bkash/Nagad) and order tracking, not mandatory.
+  - Newsletter Signup: Add a form with email validation and a welcome email series, triggered via Netlify Functions or a third-party service.
+  - Payment Method Selection: Enhance the cart modal with selectable payment options (Bkash, Nagad, Rocket) via radio buttons or dropdown for clear client choice.
+  - Delivery Fee Calculation: Automatically calculate delivery fees based on location (80৳ for Dhaka metro, 120-150৳ outside Dhaka) using a client address input (e.g., dropdown or text field).
+  - Responsive Slider: Include a hero slider with video backgrounds and interactive elements (e.g., call-to-action buttons), fully responsive with touch support.
+  - Social Proof: Display rotating testimonials and trust badges (e.g., "Secure Payment") with admin-editable content.
+  - Fixed Header Navigation: Add a fixed header with breadcrumb trail, linking to Home, Shop, Products, Categories, Track Status, and Contact, with a hamburger menu for mobile views that remains closed by default.
+  - Contact Section: Include a Contact section with WhatsApp integration[](https://wa.me/01747292277) and a live chat widget (e.g., using Tawk.to).
+  - Order Booking Logic: Implement a confirmation system with multiple payment methods (Bkash, Nagad, Rocket), generating a unique order ID, displaying a responsive dashboard with copy functionality, and linking to a "Track Status" page, updated real-time in the admin panel with error handling for undefined functions.
+  - Wishlist Functionality: Add heart icons for saving items, with a "Save for Later" section, manageable via the admin panel.
+  - Product Comparison: Include a side-by-side view feature for comparing up to 3 products, accessible from product pages.
+  - Recently Viewed Products: Display a section showing recently viewed items, updated client-side.
+  - Flash Sales Countdown Timer: Add a timer for flash sales, editable via the admin panel with start/end dates.
+  - Inventory Status Indicators: Show "In Stock," "Low Stock," or "Out of Stock" labels, updated via the admin panel.
+  - Product Zoom and 360-Degree View: Implement zoom and a simulated 360-degree view for product images.
+  - Social Sharing Buttons: Add buttons for Facebook, Twitter, and WhatsApp sharing on product pages.
+  - Referral System: Include a referral system with discount codes (e.g., 10% off for referrals), managed via the admin panel.
+  - Guest Checkout Option: Allow purchases without account creation, with an option to save details.
+  - FAQ Section: Add an expandable FAQ section, editable via the admin panel.
+  - Blog Section: Create a blog section for SEO and engagement, with posts manageable via the admin panel.
+  - Customer Reviews and Ratings: Implement a system for reviews and ratings (1-5 stars), submitted by clients and moderated via the admin panel.
+  - Live Visitor Counter: Display a real-time visitor counter using a third-party service (e.g., StatCounter).
+  - Recent Purchase Notifications: Show notifications of recent purchases (e.g., "John D. just bought a Mug!").
+  - Multi-Language Support: Add a Bengali/English toggle, with translations manageable via the admin panel.
+- Animation: Showcase advanced animations (e.g., fade-in, slide-in, parallax, 3D tilt effects) to reflect July 2025's cutting-edge style, optimized for performance with lazy loading.
+- Deployment: Optimize for Netlify deployment with a root-level index.html file, proper admin panel configuration, and environment variables for sensitive data (e.g., WHATSAPP_NUMBER=01747292277) stored in Netlify settings. Use Netlify Functions for email validation, welcome series, and order processing if needed.
+- Netlify CMS Configuration: Ensure admin/config.yml includes collections for:
+  - Products: title, price, category, image, description, size/color variants, inventory_status
+  - Categories: name, slug
+  - Orders: order_id, status, payment_method, payment_status, instructions, delivery_address
+  - Promo Codes: code, discount, expiry_date
+  - Banners: title, image, link, active_status
+  - Blog Posts: title, content, date
+  - FAQs: question, answer
+  - Reviews: product_id, rating, comment
+  - Flash Sales: title, discount, start_date, end_date
+- Deployment Instructions for Netlify and GitHub:
+  - Generate all files in Replit, download as a ZIP or folder, and extract to a local directory.
+  - Initialize a Git repository locally: `git init`, add files (`git add .`), commit (`git commit -m "Initial TryneX e-commerce platform"`), and push to a new GitHub repository (e.g., tryneX-website) with `git remote add origin <GitHub-URL>` and `git push -u origin main`.
+  - Log into [Netlify](https://app.netlify.com), create a new site from Git, select your GitHub repository, and configure Build settings:
+    - Branch to deploy: `main`
+    - Base directory: `/` (or blank)
+    - Build command: (leave blank, as it’s a static site)
+    - Publish directory: `/`
+    - Functions directory: (optional, for email/order logic)
+  - Enable **Identity** in **Settings** > **"Access control"** or **"Identity"**, set Registration to **"Invite only"**, and enable **Git Gateway** under **Services** or **"Access control"** > **OAuth**.
+  - Invite yourself as Admin via **"Invite users"** with an **Admin** role, accept the invite, and set a password.
+  - Deploy the site and access the admin panel at `https://your-site-name.netlify.app/admin` to manage content, ensuring CMS connection works seamlessly.
+- Final Checks: Verify all features (cart with WhatsApp, Email, Direct order methods, search, tracking, promo codes, banners, order management, wishlist, reviews, etc.) work seamlessly, reflect in the admin panel, and allow order status updates. Test responsiveness, performance, multi-language support, and error handling (resolved JavaScript errors), then push updated directories to GitHub.
