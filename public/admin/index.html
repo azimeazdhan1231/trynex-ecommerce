@@ -1,0 +1,223 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TryneX Admin Panel</title>
+  <style>
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #d4af37 0%, #f4e88a 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .loading-container {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      max-width: 400px;
+    }
+    
+    .logo {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #d4af37 0%, #f4e88a 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #000;
+    }
+    
+    .spinner {
+      border: 3px solid #f3f3f3;
+      border-top: 3px solid #d4af37;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+      margin: 1rem auto;
+    }
+    
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    h1 {
+      color: #333;
+      margin-bottom: 0.5rem;
+      font-size: 1.5rem;
+    }
+    
+    p {
+      color: #666;
+      margin-bottom: 1rem;
+    }
+    
+    .error {
+      color: #dc3545;
+      background: #f8d7da;
+      border: 1px solid #f5c6cb;
+      padding: 0.75rem;
+      border-radius: 6px;
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="loading-container">
+    <div class="logo">TX</div>
+    <h1>TryneX Admin Panel</h1>
+    <p>Loading content management system...</p>
+    <div class="spinner"></div>
+    <div id="error-message" class="error" style="display: none;"></div>
+  </div>
+
+  <script>
+    // Check if running on localhost or development
+    const isDevelopment = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+    
+    // Set up Netlify Identity for authentication
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", user => {
+        if (!user) {
+          window.netlifyIdentity.on("login", () => {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+    
+    // Initialize CMS
+    function initializeCMS() {
+      try {
+        // Check if Netlify CMS is available
+        if (window.CMS) {
+          // Initialize the CMS
+          window.CMS.init();
+          
+          // Hide loading screen
+          document.querySelector('.loading-container').style.display = 'none';
+          
+          // Custom preview templates
+          window.CMS.registerPreviewTemplate('products', createProductPreview);
+          window.CMS.registerPreviewTemplate('categories', createCategoryPreview);
+          window.CMS.registerPreviewTemplate('blog', createBlogPreview);
+          
+          // Custom editor components
+          window.CMS.registerEditorComponent({
+            id: 'youtube',
+            label: 'YouTube',
+            fields: [
+              { name: 'id', label: 'Video ID', widget: 'string' },
+              { name: 'title', label: 'Title', widget: 'string' }
+            ],
+            pattern: /^{{< youtube (\S+) >}}$/,
+            fromBlock: function(match) {
+              return {
+                id: match[1]
+              };
+            },
+            toBlock: function(obj) {
+              return `{{< youtube ${obj.id} >}}`;
+            },
+            toPreview: function(obj) {
+              return `<iframe width="560" height="315" src="https://www.youtube.com/embed/${obj.id}" frameborder="0" allowfullscreen></iframe>`;
+            }
+          });
+          
+        } else {
+          throw new Error('Netlify CMS not loaded');
+        }
+      } catch (error) {
+        console.error('CMS initialization error:', error);
+        showError('Failed to initialize CMS. Please check your configuration.');
+      }
+    }
+    
+    function showError(message) {
+      const errorDiv = document.getElementById('error-message');
+      errorDiv.textContent = message;
+      errorDiv.style.display = 'block';
+      document.querySelector('.spinner').style.display = 'none';
+    }
+    
+    // Preview templates
+    function createProductPreview(props) {
+      const data = props.entry.getIn(['data']).toJS();
+      return `
+        <div style="border: 1px solid #ddd; padding: 20px; margin: 20px; border-radius: 8px;">
+          <h3>${data.name || 'Product Name'}</h3>
+          <img src="${data.image || 'https://via.placeholder.com/300x200'}" style="max-width: 200px; height: auto;" />
+          <p><strong>Price:</strong> ৳${data.price || 0}</p>
+          <p><strong>Category:</strong> ${data.category || 'Uncategorized'}</p>
+          <p><strong>Description:</strong> ${data.description || 'No description'}</p>
+          <p><strong>In Stock:</strong> ${data.inStock ? 'Yes' : 'No'}</p>
+        </div>
+      `;
+    }
+    
+    function createCategoryPreview(props) {
+      const data = props.entry.getIn(['data']).toJS();
+      return `
+        <div style="border: 1px solid #ddd; padding: 20px; margin: 20px; border-radius: 8px;">
+          <h3>${data.name || 'Category Name'}</h3>
+          <img src="${data.image || 'https://via.placeholder.com/300x200'}" style="max-width: 200px; height: auto;" />
+          <p><strong>Bengali Name:</strong> ${data.namebn || 'নাম'}</p>
+          <p><strong>Description:</strong> ${data.description || 'No description'}</p>
+          <p><strong>Starting Price:</strong> ৳${data.startingPrice || 0}</p>
+        </div>
+      `;
+    }
+    
+    function createBlogPreview(props) {
+      const data = props.entry.getIn(['data']).toJS();
+      return `
+        <div style="border: 1px solid #ddd; padding: 20px; margin: 20px; border-radius: 8px;">
+          <h3>${data.title || 'Blog Title'}</h3>
+          <img src="${data.image || 'https://via.placeholder.com/600x300'}" style="max-width: 300px; height: auto;" />
+          <p><strong>Author:</strong> ${data.author || 'Unknown'}</p>
+          <p><strong>Date:</strong> ${data.date || new Date().toLocaleDateString()}</p>
+          <p><strong>Excerpt:</strong> ${data.excerpt || 'No excerpt'}</p>
+          <div><strong>Content:</strong><br>${data.content || 'No content'}</div>
+        </div>
+      `;
+    }
+    
+    // Load CMS scripts
+    const script1 = document.createElement('script');
+    script1.src = 'https://identity.netlify.com/v1/netlify-identity-widget.js';
+    script1.onload = function() {
+      const script2 = document.createElement('script');
+      script2.src = 'https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js';
+      script2.onload = initializeCMS;
+      script2.onerror = function() {
+        showError('Failed to load Netlify CMS. Please check your internet connection.');
+      };
+      document.head.appendChild(script2);
+    };
+    script1.onerror = function() {
+      showError('Failed to load Netlify Identity. Please check your internet connection.');
+    };
+    document.head.appendChild(script1);
+    
+    // Timeout fallback
+    setTimeout(() => {
+      if (document.querySelector('.loading-container').style.display !== 'none') {
+        showError('CMS is taking too long to load. Please refresh the page.');
+      }
+    }, 15000);
+  </script>
+</body>
+</html>

@@ -1,0 +1,283 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+site_url: https://your-site.netlify.app
+display_url: https://your-site.netlify.app
+logo_url: https://your-site.netlify.app/logo.png
+
+collections:
+  - name: "products"
+    label: "Products"
+    folder: "content/products"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Name", name: "name", widget: "string" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Price", name: "price", widget: "number", value_type: "float" }
+      - { label: "Original Price", name: "originalPrice", widget: "number", value_type: "float", required: false }
+      - { label: "Category", name: "category", widget: "select", options: ["mugs", "tshirts", "keychains", "bottles", "gifts-him", "gifts-her", "gifts-parents", "gifts-babies", "couple", "hampers", "chocolates-flowers", "others"] }
+      - { label: "Image", name: "image", widget: "image" }
+      - { label: "Gallery", name: "gallery", widget: "list", field: { label: "Image", name: "image", widget: "image" }, required: false }
+      - { label: "Rating", name: "rating", widget: "number", value_type: "float", min: 0, max: 5, default: 0 }
+      - { label: "Reviews", name: "reviews", widget: "number", default: 0 }
+      - { label: "In Stock", name: "inStock", widget: "boolean", default: true }
+      - { label: "Low Stock", name: "lowStock", widget: "boolean", default: false }
+      - { label: "Is New", name: "isNew", widget: "boolean", default: false }
+      - { label: "On Sale", name: "isOnSale", widget: "boolean", default: false }
+      - { label: "Discount %", name: "discount", widget: "number", default: 0 }
+      - { label: "SKU", name: "sku", widget: "string", required: false }
+      - { label: "Inventory", name: "inventory", widget: "number", default: 0 }
+      - label: "Variants"
+        name: "variants"
+        widget: "object"
+        fields:
+          - { label: "Colors", name: "color", widget: "list", default: [], required: false }
+          - { label: "Sizes", name: "size", widget: "list", default: [], required: false }
+      - { label: "Tags", name: "tags", widget: "list", default: [], required: false }
+      - { label: "Featured", name: "featured", widget: "boolean", default: false }
+      - { label: "Meta Title", name: "metaTitle", widget: "string", required: false }
+      - { label: "Meta Description", name: "metaDescription", widget: "text", required: false }
+
+  - name: "categories"
+    label: "Categories"
+    folder: "content/categories"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Name", name: "name", widget: "string" }
+      - { label: "Bengali Name", name: "namebn", widget: "string" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Image", name: "image", widget: "image" }
+      - { label: "Icon", name: "icon", widget: "string", required: false }
+      - { label: "Starting Price", name: "startingPrice", widget: "number", value_type: "float" }
+      - { label: "Sort Order", name: "sortOrder", widget: "number", default: 0 }
+      - { label: "Active", name: "isActive", widget: "boolean", default: true }
+      - { label: "Meta Title", name: "metaTitle", widget: "string", required: false }
+      - { label: "Meta Description", name: "metaDescription", widget: "text", required: false }
+
+  - name: "orders"
+    label: "Orders"
+    folder: "content/orders"
+    create: true
+    slug: "{{orderId}}"
+    fields:
+      - { label: "Order ID", name: "orderId", widget: "string" }
+      - { label: "Customer Name", name: "customerName", widget: "string" }
+      - { label: "Customer Email", name: "customerEmail", widget: "string" }
+      - { label: "Customer Phone", name: "customerPhone", widget: "string" }
+      - { label: "Customer Address", name: "customerAddress", widget: "text" }
+      - { label: "Total", name: "total", widget: "number", value_type: "float" }
+      - { label: "Subtotal", name: "subtotal", widget: "number", value_type: "float" }
+      - { label: "Delivery Fee", name: "deliveryFee", widget: "number", value_type: "float" }
+      - { label: "Discount", name: "discount", widget: "number", value_type: "float", default: 0 }
+      - { label: "Promo Code", name: "promoCode", widget: "string", required: false }
+      - { label: "Order Method", name: "orderMethod", widget: "select", options: ["whatsapp", "email", "direct"] }
+      - { label: "Payment Method", name: "paymentMethod", widget: "select", options: ["bkash", "nagad", "rocket"] }
+      - { label: "Status", name: "status", widget: "select", options: ["pending", "processing", "shipped", "delivered", "cancelled"], default: "pending" }
+      - { label: "Special Instructions", name: "specialInstructions", widget: "text", required: false }
+      - { label: "Tracking Number", name: "trackingNumber", widget: "string", required: false }
+      - { label: "Order Date", name: "orderDate", widget: "datetime" }
+      - { label: "Updated Date", name: "updatedDate", widget: "datetime" }
+
+  - name: "promo-codes"
+    label: "Promo Codes"
+    folder: "content/promo-codes"
+    create: true
+    slug: "{{code}}"
+    fields:
+      - { label: "Code", name: "code", widget: "string" }
+      - { label: "Discount", name: "discount", widget: "number", value_type: "float" }
+      - { label: "Type", name: "type", widget: "select", options: ["percentage", "fixed"] }
+      - { label: "Minimum Amount", name: "minAmount", widget: "number", value_type: "float", required: false }
+      - { label: "Maximum Discount", name: "maxDiscount", widget: "number", value_type: "float", required: false }
+      - { label: "Expiry Date", name: "expiryDate", widget: "datetime" }
+      - { label: "Usage Limit", name: "usageLimit", widget: "number", required: false }
+      - { label: "Active", name: "isActive", widget: "boolean", default: true }
+      - { label: "Description", name: "description", widget: "text", required: false }
+
+  - name: "banners"
+    label: "Banners"
+    folder: "content/banners"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "text", required: false }
+      - { label: "Image", name: "image", widget: "image" }
+      - { label: "Button Text", name: "buttonText", widget: "string", required: false }
+      - { label: "Button Link", name: "buttonLink", widget: "string", required: false }
+      - { label: "Active", name: "isActive", widget: "boolean", default: true }
+      - { label: "Sort Order", name: "sortOrder", widget: "number", default: 0 }
+
+  - name: "flash-sales"
+    label: "Flash Sales"
+    folder: "content/flash-sales"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "text", required: false }
+      - { label: "Discount Percentage", name: "discountPercentage", widget: "number", min: 1, max: 100 }
+      - { label: "Start Date", name: "startDate", widget: "datetime" }
+      - { label: "End Date", name: "endDate", widget: "datetime" }
+      - { label: "Product Categories", name: "productCategories", widget: "list", default: [] }
+      - { label: "Active", name: "isActive", widget: "boolean", default: true }
+
+  - name: "testimonials"
+    label: "Testimonials"
+    folder: "content/testimonials"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Name", name: "name", widget: "string" }
+      - { label: "Location", name: "location", widget: "string" }
+      - { label: "Rating", name: "rating", widget: "number", min: 1, max: 5 }
+      - { label: "Comment", name: "comment", widget: "text" }
+      - { label: "Avatar", name: "avatar", widget: "image", required: false }
+      - { label: "Approved", name: "isApproved", widget: "boolean", default: false }
+      - { label: "Featured", name: "featured", widget: "boolean", default: false }
+
+  - name: "blog"
+    label: "Blog Posts"
+    folder: "content/blog"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Excerpt", name: "excerpt", widget: "text" }
+      - { label: "Content", name: "content", widget: "markdown" }
+      - { label: "Featured Image", name: "image", widget: "image" }
+      - { label: "Author", name: "author", widget: "string" }
+      - { label: "Tags", name: "tags", widget: "list", default: [] }
+      - { label: "Published", name: "isPublished", widget: "boolean", default: false }
+      - { label: "Publish Date", name: "publishedAt", widget: "datetime" }
+      - { label: "Meta Title", name: "metaTitle", widget: "string", required: false }
+      - { label: "Meta Description", name: "metaDescription", widget: "text", required: false }
+
+  - name: "faqs"
+    label: "FAQs"
+    folder: "content/faqs"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Question", name: "question", widget: "string" }
+      - { label: "Answer", name: "answer", widget: "markdown" }
+      - { label: "Category", name: "category", widget: "select", options: ["general", "shipping", "payment", "returns", "products"] }
+      - { label: "Sort Order", name: "sortOrder", widget: "number", default: 0 }
+      - { label: "Active", name: "isActive", widget: "boolean", default: true }
+
+  - name: "pages"
+    label: "Pages"
+    folder: "content/pages"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Content", name: "content", widget: "markdown" }
+      - { label: "Meta Title", name: "metaTitle", widget: "string", required: false }
+      - { label: "Meta Description", name: "metaDescription", widget: "text", required: false }
+      - { label: "Published", name: "isPublished", widget: "boolean", default: true }
+
+  - name: "settings"
+    label: "Settings"
+    files:
+      - label: "Site Settings"
+        name: "site"
+        file: "content/settings/site.md"
+        fields:
+          - { label: "Site Name", name: "siteName", widget: "string", default: "TryneX" }
+          - { label: "Site Description", name: "siteDescription", widget: "text" }
+          - { label: "Site URL", name: "siteUrl", widget: "string" }
+          - { label: "Logo", name: "logo", widget: "image" }
+          - { label: "Favicon", name: "favicon", widget: "image" }
+          - { label: "Contact Email", name: "contactEmail", widget: "string" }
+          - { label: "Contact Phone", name: "contactPhone", widget: "string" }
+          - { label: "WhatsApp Number", name: "whatsappNumber", widget: "string" }
+          - { label: "Address", name: "address", widget: "text" }
+          - { label: "Social Media", name: "socialMedia", widget: "object", fields: [
+              { label: "Facebook", name: "facebook", widget: "string", required: false },
+              { label: "Instagram", name: "instagram", widget: "string", required: false },
+              { label: "Twitter", name: "twitter", widget: "string", required: false },
+              { label: "YouTube", name: "youtube", widget: "string", required: false }
+            ]}
+          - { label: "SEO", name: "seo", widget: "object", fields: [
+              { label: "Meta Title", name: "metaTitle", widget: "string" },
+              { label: "Meta Description", name: "metaDescription", widget: "text" },
+              { label: "Keywords", name: "keywords", widget: "list", default: [] },
+              { label: "Google Analytics ID", name: "googleAnalyticsId", widget: "string", default: "G-22BF5BGNSX" }
+            ]}
+          - { label: "Delivery Settings", name: "delivery", widget: "object", fields: [
+              { label: "Dhaka Metro Fee", name: "dhakaFee", widget: "number", default: 80 },
+              { label: "Outside Dhaka Fee", name: "outsideFee", widget: "number", default: 120 },
+              { label: "Free Delivery Threshold", name: "freeDeliveryThreshold", widget: "number", default: 2000 }
+            ]}
+          - { label: "Payment Methods", name: "paymentMethods", widget: "list", default: ["bkash", "nagad", "rocket"] }
+          - { label: "Currency", name: "currency", widget: "string", default: "৳" }
+          - { label: "Maintenance Mode", name: "maintenanceMode", widget: "boolean", default: false }
+
+      - label: "Navigation"
+        name: "navigation"
+        file: "content/settings/navigation.md"
+        fields:
+          - { label: "Main Menu", name: "mainMenu", widget: "list", fields: [
+              { label: "Label", name: "label", widget: "string" },
+              { label: "URL", name: "url", widget: "string" },
+              { label: "Order", name: "order", widget: "number" }
+            ]}
+          - { label: "Footer Menu", name: "footerMenu", widget: "list", fields: [
+              { label: "Label", name: "label", widget: "string" },
+              { label: "URL", name: "url", widget: "string" },
+              { label: "Order", name: "order", widget: "number" }
+            ]}
+
+      - label: "Home Page"
+        name: "homepage"
+        file: "content/settings/homepage.md"
+        fields:
+          - { label: "Hero Section", name: "hero", widget: "object", fields: [
+              { label: "Title", name: "title", widget: "string" },
+              { label: "Subtitle", name: "subtitle", widget: "text" },
+              { label: "Background Image", name: "backgroundImage", widget: "image" },
+              { label: "CTA Button Text", name: "ctaText", widget: "string" },
+              { label: "CTA Button Link", name: "ctaLink", widget: "string" }
+            ]}
+          - { label: "Featured Categories", name: "featuredCategories", widget: "list", max: 8 }
+          - { label: "Featured Products", name: "featuredProducts", widget: "list", max: 12 }
+          - { label: "Flash Sale", name: "flashSale", widget: "object", fields: [
+              { label: "Title", name: "title", widget: "string" },
+              { label: "Description", name: "description", widget: "text" },
+              { label: "End Date", name: "endDate", widget: "datetime" },
+              { label: "Active", name: "isActive", widget: "boolean", default: false }
+            ]}
+
+# Editorial workflow
+publish_mode: editorial_workflow
+
+# Media library configuration
+media_library:
+  name: uploadcare
+  config:
+    publicKey: "your-uploadcare-public-key"
+    multiple: true
+    tabs: "file camera url facebook gdrive gphotos dropbox instagram"
+    effects: "crop,rotate,enhance,grayscale"
+    imageShrink: "2048x2048"
+    previewStep: true
+    clearable: true
+
+# Site URL for preview
+site_url: https://your-site.netlify.app
+
+# Preview context
+preview_context:
+  - name: "development"
+    branch: "develop"
+    site_url: "https://develop--your-site.netlify.app"
+  - name: "staging"
+    branch: "staging"
+    site_url: "https://staging--your-site.netlify.app"

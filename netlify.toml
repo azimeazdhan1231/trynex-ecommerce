@@ -1,0 +1,165 @@
+[build]
+  publish = "dist/public"
+  command = "npm run build"
+
+[dev]
+  command = "npm run dev"
+  port = 5000
+
+[[redirects]]
+  from = "/admin/*"
+  to = "/admin/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/api/*"
+  to = "https://your-backend-url.onrender.com/api/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[build.environment]
+  NODE_ENV = "production"
+  VITE_GA_MEASUREMENT_ID = "G-22BF5BGNSX"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://identity.netlify.com https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https: blob:; connect-src 'self' https://www.google-analytics.com https://api.netlify.com; frame-src 'self' https://www.youtube.com;"
+
+[[headers]]
+  for = "/admin/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+
+[[headers]]
+  for = "*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
+[[headers]]
+  for = "*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
+[[headers]]
+  for = "*.woff2"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
+[[headers]]
+  for = "*.woff"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
+[[headers]]
+  for = "*.ttf"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
+[[headers]]
+  for = "*.eot"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
+[[headers]]
+  for = "*.svg"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
+[[headers]]
+  for = "*.png"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
+[[headers]]
+  for = "*.jpg"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
+[[headers]]
+  for = "*.jpeg"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
+[[headers]]
+  for = "*.gif"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
+[[headers]]
+  for = "*.webp"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
+[[headers]]
+  for = "*.ico"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
+# Netlify CMS configuration
+[[plugins]]
+  package = "netlify-plugin-cypress"
+
+[[plugins]]
+  package = "@netlify/plugin-lighthouse"
+
+# Forms configuration
+[build.processing]
+  skip_processing = false
+
+[build.processing.css]
+  bundle = true
+  minify = true
+
+[build.processing.js]
+  bundle = true
+  minify = true
+
+[build.processing.html]
+  pretty_urls = true
+
+[build.processing.images]
+  compress = true
+
+# Environment variables for different deploy contexts
+[context.production.environment]
+  NODE_ENV = "production"
+  VITE_GA_MEASUREMENT_ID = "G-22BF5BGNSX"
+
+[context.deploy-preview.environment]
+  NODE_ENV = "development"
+  VITE_GA_MEASUREMENT_ID = "G-22BF5BGNSX"
+
+[context.branch-deploy.environment]
+  NODE_ENV = "development"
+  VITE_GA_MEASUREMENT_ID = "G-22BF5BGNSX"
+
+# Edge functions (for future enhancements)
+[[edge_functions]]
+  function = "analytics"
+  path = "/api/analytics/*"
+
+[[edge_functions]]
+  function = "auth"
+  path = "/api/auth/*"
+
+# Functions configuration
+[functions]
+  directory = "netlify/functions"
+
+# Identity configuration
+[identity]
+  settings = "config/identity.json"
+
+# Large Media configuration
+[large_media]
+  lfs = true
