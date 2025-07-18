@@ -2,7 +2,7 @@
 
 ## Overview
 
-TryneX is a premium e-commerce platform built for selling personalized gifts and premium products in the Bangladesh market. The application features a modern React frontend with a Node.js/Express backend, designed to provide a seamless shopping experience with Bengali/English localization support.
+TryneX is a premium e-commerce platform specializing in lifestyle products and gifts in the Bangladesh market. The platform features a modern, golden-themed design with a focus on user experience and content management capabilities. It's built as a static website with headless CMS integration for easy product and content management.
 
 ## User Preferences
 
@@ -10,104 +10,135 @@ Preferred communication style: Simple, everyday language.
 
 ## System Architecture
 
-The application follows a full-stack architecture with clear separation between frontend and backend concerns:
-
 ### Frontend Architecture
-- **Framework**: React 18 with TypeScript
-- **Build Tool**: Vite for fast development and optimized production builds
-- **Styling**: Tailwind CSS with custom design system using golden (#d4af37) color scheme
-- **UI Components**: shadcn/ui component library with Radix UI primitives
-- **State Management**: Zustand with persistence for cart, wishlist, and user preferences
-- **Routing**: Wouter for lightweight client-side routing
-- **Data Fetching**: TanStack Query for server state management
+- **Technology Stack**: Vanilla HTML5, CSS3, and JavaScript
+- **Design Philosophy**: Ultra-modern, premium aesthetic with golden (#d4af37), white, and black color scheme
+- **Responsive Design**: Mobile-first approach with CSS Grid and Flexbox
+- **Animation Framework**: Custom CSS animations with 3D transitions and hover effects
+- **Font System**: Google Fonts (Inter) for modern typography
 
-### Backend Architecture
-- **Runtime**: Node.js with Express.js framework
-- **Language**: TypeScript with ES modules
-- **API Design**: RESTful API with structured error handling
-- **Development**: Hot module replacement via Vite integration
+### Content Management System
+- **CMS**: Netlify CMS for headless content management
+- **Authentication**: Netlify Identity for admin access
+- **Content Types**: Products, categories, and site content management
+- **Data Storage**: JSON files for product catalog and categories
+
+### Data Architecture
+- **Product Data**: Static JSON files (`products.json`, `categories.json`)
+- **Multilingual Support**: Bengali and English product names and descriptions
+- **Category System**: Hierarchical product categorization with icons and sorting
 
 ## Key Components
 
-### Frontend Components
-- **Product Catalog**: Dynamic product grid with category filtering, search, and sorting
-- **Shopping Cart**: Multi-step cart system with quantity controls and variant selection
-- **Order Management**: Order tracking system with unique ID generation (TXR-YYYYMMDD-XXX format)
-- **Wishlist System**: Heart icon toggles for saving items
-- **Language Toggle**: Bengali/English language switching
-- **Responsive Design**: Mobile-first approach with fixed header navigation
+### Product Management
+- **Product Catalog**: Comprehensive product information including pricing, descriptions, images
+- **Category System**: 10+ product categories including mugs, t-shirts, keychains, water bottles, and gift collections
+- **Inventory Management**: Stock status tracking and featured product highlighting
+- **Pricing**: Bangladesh Taka (৳) currency with competitive pricing structure
 
-### Backend Services
-- **Product API**: CRUD operations for products with category and search endpoints
-- **Order Management**: Order creation, status updates, and tracking
-- **Storage Layer**: In-memory storage with JSON data files (products, categories, testimonials)
+### E-commerce Features
+- **Shopping Cart**: Client-side cart management with localStorage persistence
+- **Product Search**: Live search functionality across product names and categories
+- **Product Filtering**: Category-based filtering system
+- **WhatsApp Integration**: Direct ordering through WhatsApp with order details
 
-### Business Features
-- **Payment Integration**: Support for Bkash, Nagad, and Rocket payment methods
-- **Delivery Calculation**: Dynamic delivery fees (80৳ Dhaka, 120-150৳ outside Dhaka)
-- **Promo Code System**: Percentage and fixed discount codes with validation
-- **WhatsApp Integration**: Direct ordering via WhatsApp (01747292277)
-- **Inventory Management**: Stock status indicators and low stock warnings
+### User Interface Components
+- **Navigation**: Fixed header with responsive hamburger menu
+- **Hero Section**: Sliding banner for featured products and promotions
+- **Product Grid**: Responsive product display with lazy loading
+- **Modal System**: Cart overlay and product detail modals
+- **Form Handling**: Newsletter signup and contact forms
+
+### Payment Integration
+- **Advance Payment System**: 100 BDT advance payment via Bkash/Nagad
+- **Payment Validation**: Transaction ID verification system
+- **Order Processing**: WhatsApp-based order confirmation workflow
 
 ## Data Flow
 
-1. **Product Browsing**: Frontend fetches products from `/api/products` with filtering options
-2. **Cart Management**: Client-side cart stored in localStorage with Zustand persistence
-3. **Order Processing**: Cart data sent to backend for order creation with unique ID generation
-4. **Order Tracking**: Customers can track orders using the generated order ID
-5. **Analytics**: Google Analytics integration for user behavior tracking
+### Product Display Flow
+1. Static JSON data loads on page initialization
+2. Products render in responsive grid layout
+3. Category filtering applies real-time updates
+4. Search functionality filters results dynamically
+
+### Shopping Cart Flow
+1. Products added to cart via JavaScript event handlers
+2. Cart data persists in browser localStorage
+3. Cart count updates in real-time in header
+4. Cart modal displays itemized order summary
+
+### Order Processing Flow
+1. Customer adds products to cart
+2. Cart review in modal interface
+3. Advance payment (100 BDT) via mobile banking
+4. Transaction ID submission and validation
+5. WhatsApp order confirmation with full details
 
 ## External Dependencies
 
-### Frontend Dependencies
-- **UI/UX**: Radix UI primitives, Lucide React icons, Tailwind CSS
-- **State & Data**: Zustand, TanStack Query, React Hook Form with Zod validation
-- **Utilities**: Date-fns for date formatting, clsx for conditional styling
+### Content Delivery Networks
+- **Font Awesome**: Icon library for UI elements
+- **Google Fonts**: Inter font family for typography
+- **Netlify Identity**: Authentication for admin panel
+- **Netlify CMS**: Content management interface
 
-### Backend Dependencies
-- **Database**: Drizzle ORM configured for PostgreSQL (schema defined but using JSON storage currently)
-- **Session Management**: Connect-pg-simple for PostgreSQL session storage
-- **Development**: tsx for TypeScript execution, esbuild for production builds
+### Third-party Services
+- **WhatsApp Business API**: Direct customer communication and ordering
+- **Bkash/Nagad**: Mobile banking payment gateways
+- **Pixabay**: Placeholder images for product catalog
 
-### Analytics & Tracking
-- **Google Analytics**: Configured with measurement ID G-22BF5BGNSX
-- **Environment Variables**: Vite environment configuration for API URLs and analytics
+### Development Tools
+- **Netlify**: Static site hosting and deployment
+- **Git**: Version control and deployment pipeline
 
 ## Deployment Strategy
 
-### Frontend Deployment (Netlify)
-- **Build Process**: Vite build targeting client directory
-- **Environment**: Production builds served from dist/public
-- **Redirects**: SPA routing handled via Netlify redirects
-- **Base Directory**: /client for Netlify build configuration
+### Static Site Deployment
+- **Platform**: Netlify for automatic deployment
+- **Build Process**: Static file serving with CDN distribution
+- **Domain**: Custom domain configuration support
+- **SSL**: Automatic HTTPS certificate management
 
-### Backend Deployment (Render/Production)
-- **Build Command**: esbuild compilation to dist/index.js
-- **Environment**: NODE_ENV=production with PostgreSQL database
-- **Database**: Drizzle ORM ready for PostgreSQL migration from JSON storage
-- **Static Assets**: Vite serves frontend in development, separate static hosting in production
+### Content Management
+- **Admin Access**: `/admin` route with Netlify Identity authentication
+- **Content Updates**: Real-time content publishing through Netlify CMS
+- **Asset Management**: Integrated media library for product images
 
-### Configuration Management
-- **Development**: Local JSON files for data storage
-- **Production**: PostgreSQL database with Drizzle ORM migrations
-- **Environment Variables**: Database URL, analytics keys, and API endpoints
-- **Asset Management**: Static assets served separately from backend API
+### Performance Optimization
+- **Image Optimization**: Lazy loading implementation for product images
+- **Code Minification**: CSS and JavaScript optimization for faster load times
+- **Caching Strategy**: Browser caching for static assets
+- **Mobile Performance**: Touch-optimized interactions and responsive design
 
-The architecture supports easy migration from development JSON storage to production PostgreSQL database through the existing Drizzle ORM schema definitions.
+### Environment Configuration
+- **Contact Information**: WhatsApp number configuration (01747292277)
+- **Payment Gateway**: Bkash/Nagad integration parameters
+- **CMS Configuration**: Netlify CMS backend settings in `/admin/config.yml`
 
-## Recent Changes and Fixes
+### Scalability Considerations
+- **Database Migration Path**: Current JSON structure can be migrated to relational database
+- **API Integration**: Modular architecture allows for future REST API integration
+- **Multi-language Support**: Foundation for expanding beyond Bengali/English
 
-✓ Fixed missing analytics library files (analytics.ts and use-analytics.tsx)
-✓ Resolved build errors preventing deployment
-✓ Confirmed successful production build process
-✓ Project structure properly organized for deployment
-✓ All dependencies correctly installed and configured
+## Recent Changes: Latest modifications with dates
 
-## Deployment Status
+### July 17, 2025 - Major Website Improvements and Bug Fixes
+- **Mobile Navigation Fixed**: Completely overhauled hamburger menu functionality with proper CSS transitions and JavaScript event handlers
+- **Enhanced Responsive Design**: Added comprehensive media queries for tablets (768px) and mobile (480px) breakpoints
+- **Expanded Product Catalog**: Added 12 new products (IDs 19-30) across all categories with proper Bengali translations
+- **Advanced Products Page**: Enhanced filtering system with price ranges, category filters, and sorting options
+- **Improved Search**: Added real-time search with suggestions and category-based filtering
+- **Better Mobile Experience**: Fixed product card layouts, button sizing, and navigation flow on small screens
+- **Server Configuration**: Added proper Node.js server setup with static file serving for development and deployment
+- **Mobile Menu Auto-Open Fix**: Fixed hamburger menu appearing open by default on mobile screens
+- **Enhanced Responsive Breakpoints**: Improved CSS for better mobile and tablet compatibility
+- **Advanced Product Filtering**: Added comprehensive search and filtering capabilities with price ranges and category sorting
 
-The project is now ready for deployment with:
-- Frontend build successfully generating to dist/public
-- Backend build creating production server in dist/index.js
-- All analytics and tracking properly configured
-- Netlify configuration ready in netlify.toml
-- Environment variables configured for production
+### Key Improvements Made
+1. **Responsive Navigation**: Fixed hamburger menu auto-opening issue on mobile devices with proper CSS max-height transitions
+2. **Product Enhancement**: Expanded from 18 to 30 products with diverse categories including gaming accessories, jewelry, educational toys
+3. **Advanced Filtering**: Added price range filters, category sorting, search suggestions, and real-time filtering
+4. **Mobile Optimization**: Improved breakpoints for better mobile and tablet experience with proper button and layout sizing
+5. **Performance**: Optimized image loading and responsive grid layout with lazy loading
+6. **Enhanced UX**: Added comprehensive search suggestions, product count display, and smooth transitionsts

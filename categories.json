@@ -1,0 +1,101 @@
+[
+  {
+    "id": 1,
+    "name": "Mugs",
+    "name_bn": "মগ",
+    "icon": "fas fa-coffee",
+    "description": "Premium ceramic mugs starting from ৫৫০৳",
+    "sort_order": 1,
+    "active": true
+  },
+  {
+    "id": 2,
+    "name": "T-Shirts",
+    "name_bn": "টি-শার্ট",
+    "icon": "fas fa-tshirt",
+    "description": "Comfortable t-shirts starting from ৫৫০৳",
+    "sort_order": 2,
+    "active": true
+  },
+  {
+    "id": 3,
+    "name": "Keychains",
+    "name_bn": "চাবির চেইন",
+    "icon": "fas fa-key",
+    "description": "Stylish keychains starting from ৪০০৳",
+    "sort_order": 3,
+    "active": true
+  },
+  {
+    "id": 4,
+    "name": "Water Bottles",
+    "name_bn": "পানির বোতল",
+    "icon": "fas fa-bottle-water",
+    "description": "Eco-friendly bottles starting from ৮০০৳",
+    "sort_order": 4,
+    "active": true
+  },
+  {
+    "id": 5,
+    "name": "Gift for Him",
+    "name_bn": "তার জন্য উপহার",
+    "icon": "fas fa-male",
+    "description": "🎁 স্পেশাল gifts for men",
+    "sort_order": 5,
+    "active": true
+  },
+  {
+    "id": 6,
+    "name": "Gift for Her",
+    "name_bn": "তার জন্য উপহার",
+    "icon": "fas fa-female",
+    "description": "💝 এক্সক্লুসিভ gifts for women",
+    "sort_order": 6,
+    "active": true
+  },
+  {
+    "id": 7,
+    "name": "Gift for Parents",
+    "name_bn": "বাবা-মায়ের জন্য উপহার",
+    "icon": "fas fa-heart",
+    "description": "❤️ ভালোবাসা filled gifts",
+    "sort_order": 7,
+    "active": true
+  },
+  {
+    "id": 8,
+    "name": "Gifts for Babies",
+    "name_bn": "শিশুদের জন্য উপহার",
+    "icon": "fas fa-baby",
+    "description": "🍼 সেফ baby products",
+    "sort_order": 8,
+    "active": true
+  },
+  {
+    "id": 9,
+    "name": "For Couple",
+    "name_bn": "দম্পতির জন্য",
+    "icon": "fas fa-heart",
+    "description": "💑 রোমান্টিক couple gifts",
+    "sort_order": 9,
+    "active": true
+  },
+  {
+    "id": 10,
+    "name": "Premium Luxury Gift Hampers",
+    "name_bn": "প্রিমিয়াম লাক্সারি গিফট হ্যাম্পার",
+    "icon": "fas fa-gift",
+    "description": "🎁 লাক্সারি hampers",
+    "sort_order": 10,
+    "active": true
+  },
+  {
+    "id": 11,
+    "name": "Chocolates & Flowers",
+    "name_bn": "চকলেট এবং ফুল",
+    "icon": "fas fa-rose",
+    "description": "🍫🌹 রোমান্টিক combos",
+    "sort_order": 11,
+    "active": true
+  }
+]

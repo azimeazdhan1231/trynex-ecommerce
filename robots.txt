@@ -1,0 +1,10 @@
+
+User-agent: *
+Allow: /
+Allow: /products.html
+Allow: /track-order.html
+Disallow: /admin/
+Disallow: /_*
+Disallow: /attached_assets/
+
+Sitemap: https://trynex.netlify.app/sitemap.xml

@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - TryneX Premium Lifestyle</title>
+    <meta name="description" content="Browse our complete collection of premium gifts, custom mugs, t-shirts, and luxury hampers. Find the perfect product for every occasion.">
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        .products-page {
+            margin-top: 100px;
+            padding: 2rem 0;
+        }
+
+        .products-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .products-filters {
+            background: var(--secondary-gray);
+            padding: 2rem 0;
+            margin-bottom: 3rem;
+        }
+
+        .filters-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .filter-group label {
+            font-weight: 600;
+            color: var(--text-dark);
+            font-size: 0.9rem;
+        }
+
+        .filter-group select,
+        .filter-group input {
+            padding: 0.75rem;
+            border: 2px solid var(--border-light);
+            border-radius: var(--radius-lg);
+            font-size: 1rem;
+            background: var(--primary-white);
+            transition: var(--transition);
+        }
+
+        .filter-group select:focus,
+        .filter-group input:focus {
+            outline: none;
+            border-color: var(--primary-gold);
+        }
+
+        .price-range {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .price-range input {
+            flex: 1;
+        }
+
+        .clear-filters {
+            background: var(--primary-gold);
+            color: var(--primary-black);
+            border: none;
+            padding: 0.75rem 1rem;
+            border-radius: var(--radius-lg);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .clear-filters:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .products-results {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .results-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .results-count {
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        .sort-options {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .view-toggle {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .view-btn {
+            background: var(--border-light);
+            border: none;
+            padding: 0.5rem;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .view-btn.active {
+            background: var(--primary-gold);
+            color: var(--primary-white);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .products-grid.list-view {
+            grid-template-columns: 1fr;
+        }
+
+        .product-card.list-view {
+            display: flex;
+            flex-direction: row;
+            max-width: none;
+        }
+
+        .product-card.list-view .product-image {
+            width: 200px;
+            height: 200px;
+            flex-shrink: 0;
+        }
+
+        .product-card.list-view .product-info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 4rem 2rem;
+            color: var(--text-light);
+        }
+
+        .no-results i {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            opacity: 0.5;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 3rem;
+        }
+
+        .pagination button {
+            background: var(--primary-white);
+            border: 2px solid var(--border-light);
+            padding: 0.75rem 1rem;
+            border-radius: var(--radius-lg);
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+
+        .pagination button:hover:not(:disabled) {
+            border-color: var(--primary-gold);
+            background: var(--primary-gold);
+            color: var(--primary-white);
+        }
+
+        .pagination button.active {
+            background: var(--primary-gold);
+            border-color: var(--primary-gold);
+            color: var(--primary-white);
+        }
+
+        .pagination button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--primary-gold);
+            color: var(--primary-white);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition);
+            opacity: 0;
+            visibility: hidden;
+            z-index: var(--z-fixed);
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 768px) {
+            .filters-container {
+                grid-template-columns: 1fr;
+            }
+
+            .results-header {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .sort-options {
+                justify-content: space-between;
+            }
+
+            .product-card.list-view {
+                flex-direction: column;
+            }
+
+            .product-card.list-view .product-image {
+                width: 100%;
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <h1><a href="index.html" style="text-decoration: none; color: inherit;">TryneX</a></h1>
+                    <span class="logo-tagline">Premium Lifestyle</span>
+                </div>
+
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="products.html" class="nav-link active">Products</a></li>
+                    <li><a href="index.html#categories" class="nav-link">Categories</a></li>
+                    <li><a href="track-order.html" class="nav-link">Track Order</a></li>
+                    <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+                </ul>
+
+                <div class="nav-actions">
+                    <button class="search-btn" id="search-btn">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <button class="cart-btn" id="cart-btn">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cart-count">0</span>
+                    </button>
+                    <button class="hamburger" id="hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Search Overlay -->
+        <div class="search-overlay" id="search-overlay">
+            <div class="search-container">
+                <div class="search-box">
+                    <input type="text" id="search-input" placeholder="Search products, categories, or keywords...">
+                    <button class="search-submit" id="search-submit">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <button class="search-close" id="search-close">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="search-suggestions" id="search-suggestions">
+                    <!-- Dynamic suggestions will appear here -->
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Products Page -->
+    <main class="products-page">
+        <div class="products-header">
+            <div class="container">
+                <h1 class="section-title">Our Premium Collection</h1>
+                <p class="section-subtitle">Discover quality products crafted with care</p>
+            </div>
+        </div>
+
+        <!-- Filters -->
+        <section class="products-filters">
+            <div class="filters-container">
+                <div class="filter-group">
+                    <label for="category-filter">Category</label>
+                    <select id="category-filter">
+                        <option value="">All Categories</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="price-min">Price Range</label>
+                    <div class="price-range">
+                        <input type="number" id="price-min" placeholder="Min ৳" min="0">
+                        <span>-</span>
+                        <input type="number" id="price-max" placeholder="Max ৳" min="0">
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <label for="sort-filter">Sort By</label>
+                    <select id="sort-filter">
+                        <option value="name">Name A-Z</option>
+                        <option value="name-desc">Name Z-A</option>
+                        <option value="price">Price Low to High</option>
+                        <option value="price-desc">Price High to Low</option>
+                        <option value="rating">Highest Rated</option>
+                        <option value="newest">Newest First</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label>&nbsp;</label>
+                    <button class="clear-filters" id="clear-filters">
+                        <i class="fas fa-times"></i>
+                        Clear Filters
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Products Results -->
+        <section class="products-results">
+            <div class="results-header">
+                <div class="results-count" id="results-count">
+                    Showing 0 products
+                </div>
+
+                <div class="sort-options">
+                    <div class="view-toggle">
+                        <button class="view-btn active" id="grid-view" data-view="grid">
+                            <i class="fas fa-th-large"></i>
+                        </button>
+                        <button class="view-btn" id="list-view" data-view="list">
+                            <i class="fas fa-list"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="products-grid" id="products-grid">
+                <!-- Products will be loaded here -->
+            </div>
+
+            <div class="no-results" id="no-results" style="display: none;">
+                <i class="fas fa-search"></i>
+                <h3>No products found</h3>
+                <p>Try adjusting your filters or search terms</p>
+            </div>
+
+            <div class="pagination" id="pagination">
+                <!-- Pagination will be generated here -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Cart Modal -->
+    <div class="modal" id="cart-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-shopping-cart"></i> Shopping Cart</h3>
+                <button class="modal-close" onclick="closeModal('cart-modal')">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Cart Items -->
+                <div class="cart-items" id="cart-items">
+                    <!-- Cart items will be populated by JavaScript -->
+                </div>
+
+                <!-- Empty Cart Message -->
+                <div class="cart-empty" id="cart-empty">
+                    <div class="empty-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h4>Your cart is empty</h4>
+                    <p>Add some products to get started</p>
+                    <button class="cta-btn" onclick="closeModal('cart-modal')">Continue Shopping</button>
+                </div>
+
+                <!-- Promo Code Section -->
+                <div class="promo-section" id="promo-section">
+                    <div class="promo-header">
+                        <i class="fas fa-percent"></i>
+                        <span>Have a promo code?</span>
+                    </div>
+                    <div class="promo-input-container">
+                        <input type="text" id="promo-code" placeholder="Enter promo code">
+                        <button class="apply-promo-btn" onclick="applyPromoCode()">Apply</button>
+                    </div>
+                    <div class="promo-status" id="promo-status"></div>
+                </div>
+
+                <!-- Special Instructions -->
+                <div class="instructions-section" id="instructions-section">
+                    <div class="instructions-header">
+                        <i class="fas fa-comment-dots"></i>
+                        <span>Special Instructions</span>
+                    </div>
+                    <textarea id="special-instructions-cart" placeholder="Any special requests or instructions..." rows="3"></textarea>
+                </div>
+            </div>
+
+            <div class="modal-footer" id="cart-footer">
+                <div class="cart-summary">
+                    <div class="summary-row">
+                        <span>Subtotal:</span>
+                        <span>৳<span id="cart-subtotal">0</span></span>
+                    </div>
+                    <div class="summary-row promo-discount" id="promo-discount">
+                        <span>Discount:</span>
+                        <span class="discount-amount">-৳<span id="discount-amount">0</span></span>
+                    </div>
+                    <div class="summary-row delivery-fee">
+                        <span>Delivery Fee:</span>
+                        <span>৳<span id="delivery-fee">80</span></span>
+                    </div>
+                    <div class="summary-row total">
+                        <span><strong>Total:</strong></span>
+                        <span><strong>৳<span id="cart-total">0</span></strong></span>
+                    </div>
+                </div>
+                <div class="checkout-actions">
+                    <button class="cta-btn primary" onclick="proceedToCheckout()">
+                        <i class="fas fa-credit-card"></i>
+                        Proceed to Checkout
+                    </button>
+                    <button class="cta-btn secondary" onclick="orderViaWhatsApp()">
+                        <i class="fab fa-whatsapp"></i>
+                        Order via WhatsApp
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="back-to-top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script src="script.js"></script>
+    <script src="products.js"></script>
+</body>
+</html>

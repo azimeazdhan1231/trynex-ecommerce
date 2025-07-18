@@ -1,38 +1,28 @@
+
 [build]
-  publish = "dist/public"
-  command = "npm ci --include=dev && npm run build"
+  publish = "."
+  command = "echo 'Static site - no build required'"
 
 [build.environment]
-  NODE_ENV = "production"
-  VITE_GA_MEASUREMENT_ID = "G-22BF5BGNSX"
-  NPM_FLAGS = "--include=dev"
   NODE_VERSION = "18"
 
-[[redirects]]
-  from = "/api/*"
-  to = "https://your-backend-url.onrender.com/api/:splat"
-  status = 200
-  force = true
-
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
-
-# Basic security headers
 [[headers]]
-  for = "/*"
+  for = "/admin/config.yml"
+  [headers.values]
+    Content-Type = "text/yaml; charset=utf-8"
+
+[[headers]]
+  for = "/admin/*"
   [headers.values]
     X-Frame-Options = "DENY"
     X-Content-Type-Options = "nosniff"
 
-# Cache static assets
-[[headers]]
-  for = "*.js"
-  [headers.values]
-    Cache-Control = "public, max-age=31536000"
+[[redirects]]
+  from = "/admin"
+  to = "/admin/index.html"
+  status = 200
 
-[[headers]]
-  for = "*.css"
-  [headers.values]
-    Cache-Control = "public, max-age=31536000"
+[[redirects]]
+  from = "/admin/*"
+  to = "/admin/index.html"
+  status = 200

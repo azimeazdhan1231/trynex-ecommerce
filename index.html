@@ -1,0 +1,85 @@
+</main>
+
+    <!-- Cart Modal -->
+    <div class="modal" id="cart-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-shopping-cart"></i> Shopping Cart</h3>
+                <button class="modal-close" onclick="closeModal('cart-modal')">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Cart Items -->
+                <div class="cart-items" id="cart-items">
+                    <!-- Cart items will be populated by JavaScript -->
+                </div>
+
+                <!-- Empty Cart Message -->
+                <div class="cart-empty" id="cart-empty">
+                    <div class="empty-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h4>Your cart is empty</h4>
+                    <p>Add some products to get started</p>
+                    <button class="cta-btn" onclick="closeModal('cart-modal')">Continue Shopping</button>
+                </div>
+
+                <!-- Promo Code Section -->
+                <div class="promo-section" id="promo-section">
+                    <div class="promo-header">
+                        <i class="fas fa-percent"></i>
+                        <span>Have a promo code?</span>
+                    </div>
+                    <div class="promo-input-container">
+                        <input type="text" id="promo-code" placeholder="Enter promo code">
+                        <button class="apply-promo-btn" onclick="applyPromoCode()">Apply</button>
+                    </div>
+                    <div class="promo-status" id="promo-status"></div>
+                </div>
+
+                <!-- Special Instructions -->
+                <div class="instructions-section" id="instructions-section">
+                    <div class="instructions-header">
+                        <i class="fas fa-comment-dots"></i>
+                        <span>Special Instructions</span>
+                    </div>
+                    <textarea id="special-instructions-cart" placeholder="Any special requests or instructions..." rows="3"></textarea>
+                </div>
+            </div>
+
+            <div class="modal-footer" id="cart-footer">
+                <div class="cart-summary">
+                    <div class="summary-row">
+                        <span>Subtotal:</span>
+                        <span>৳<span id="cart-subtotal">0</span></span>
+                    </div>
+                    <div class="summary-row promo-discount" id="promo-discount">
+                        <span>Discount:</span>
+                        <span class="discount-amount">-৳<span id="discount-amount">0</span></span>
+                    </div>
+                    <div class="summary-row delivery-fee">
+                        <span>Delivery Fee:</span>
+                        <span>৳<span id="delivery-fee">80</span></span>
+                    </div>
+                    <div class="summary-row total">
+                        <span><strong>Total:</strong></span>
+                        <span><strong>৳<span id="cart-total">0</span></strong></span>
+                    </div>
+                </div>
+                <div class="checkout-actions">
+                    <button class="cta-btn primary" onclick="proceedToCheckout()">
+                        <i class="fas fa-credit-card"></i>
+                        Proceed to Checkout
+                    </button>
+                    <button class="cta-btn secondary" onclick="orderViaWhatsApp()">
+                        <i class="fab fa-whatsapp"></i>
+                        Order via WhatsApp
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer" id="footer">

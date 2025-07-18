@@ -1,0 +1,39 @@
+hero_slides:
+  - title: "Premium Lifestyle Products"
+    subtitle: "Discover unique gifts and personalized items for every occasion"
+    button_text: "Shop Now"
+    button_action: "#shop"
+    image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800"
+    active: true
+  - title: "Custom Mugs & T-Shirts"
+    subtitle: "Personalize your style with our exclusive collection"
+    button_text: "View Collection"
+    button_action: "#shop"
+    image: "https://images.unsplash.com/photo-1521336575822-6da63fb45455?w=800"
+    active: true
+  - title: "Perfect Gifts for Everyone"
+    subtitle: "From keychains to luxury hampers - find the perfect gift"
+    button_text: "Browse Gifts"
+    button_action: "#shop"
+    image: "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=800"
+    active: true
+
+featured_products:
+  - product_id: 1
+  - product_id: 5
+  - product_id: 9
+  - product_id: 13
+
+testimonials:
+  - name: "Sarah Ahmed"
+    review: "Amazing quality mugs with beautiful designs. Fast delivery and excellent customer service!"
+    rating: 5
+    verified: true
+  - name: "Rahul Khan"
+    review: "Ordered custom t-shirts for our team. Perfect printing quality and great fabric."
+    rating: 5
+    verified: true
+  - name: "Fatima Begum"
+    review: "Beautiful gift hampers for my family. Everyone loved the premium packaging!"
+    rating: 5
+    verified: true
